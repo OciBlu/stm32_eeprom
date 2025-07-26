@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccZ0JBmb.s 			page 1
+ARM GAS  /tmp/ccxa4uDH.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
   30:Core/Src/syscalls.c **** #include <sys/time.h>
   31:Core/Src/syscalls.c **** #include <sys/times.h>
   32:Core/Src/syscalls.c **** 
-ARM GAS  /tmp/ccZ0JBmb.s 			page 2
+ARM GAS  /tmp/ccxa4uDH.s 			page 2
 
 
   33:Core/Src/syscalls.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
   65              		.fpu softvfp
   67              	_kill:
   68              	.LVL0:
-ARM GAS  /tmp/ccZ0JBmb.s 			page 3
+ARM GAS  /tmp/ccxa4uDH.s 			page 3
 
 
   69              	.LFB27:
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  114              		.cfi_def_cfa_offset 8
  115              		.cfi_offset 3, -8
  116              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccZ0JBmb.s 			page 4
+ARM GAS  /tmp/ccxa4uDH.s 			page 4
 
 
   63:Core/Src/syscalls.c ****   _kill(status, -1);
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  163              	.L10:
   73:Core/Src/syscalls.c ****   {
   74:Core/Src/syscalls.c ****     *ptr++ = __io_getchar();
-ARM GAS  /tmp/ccZ0JBmb.s 			page 5
+ARM GAS  /tmp/ccxa4uDH.s 			page 5
 
 
  164              		.loc 1 74 5 is_stmt 1 discriminator 3 view .LVU26
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  209              		.loc 1 81 1 is_stmt 0 view .LVU39
  210 0000 70B5     		push	{r4, r5, r6, lr}
  211              	.LCFI3:
-ARM GAS  /tmp/ccZ0JBmb.s 			page 6
+ARM GAS  /tmp/ccxa4uDH.s 			page 6
 
 
  212              		.cfi_def_cfa_offset 16
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  254              		.align	1
  255              		.global	_close
  256              		.syntax unified
-ARM GAS  /tmp/ccZ0JBmb.s 			page 7
+ARM GAS  /tmp/ccxa4uDH.s 			page 7
 
 
  257              		.thumb
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  104:Core/Src/syscalls.c **** }
  301              		.loc 1 104 1 is_stmt 0 view .LVU65
  302 0006 0020     		movs	r0, #0
-ARM GAS  /tmp/ccZ0JBmb.s 			page 8
+ARM GAS  /tmp/ccxa4uDH.s 			page 8
 
 
  303              	.LVL21:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  351              		.loc 1 114 3 view .LVU73
  115:Core/Src/syscalls.c ****   (void)ptr;
  352              		.loc 1 115 3 view .LVU74
-ARM GAS  /tmp/ccZ0JBmb.s 			page 9
+ARM GAS  /tmp/ccxa4uDH.s 			page 9
 
 
  116:Core/Src/syscalls.c ****   (void)dir;
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  398              		.cfi_def_cfa_offset 0
  399 0008 7047     		bx	lr
  400              		.cfi_endproc
-ARM GAS  /tmp/ccZ0JBmb.s 			page 10
+ARM GAS  /tmp/ccxa4uDH.s 			page 10
 
 
  401              	.LFE35:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  449              		.loc 1 136 1 is_stmt 1 view -0
  450              		.cfi_startproc
  451              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccZ0JBmb.s 			page 11
+ARM GAS  /tmp/ccxa4uDH.s 			page 11
 
 
  452              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  499              		.section	.text._stat,"ax",%progbits
  500              		.align	1
  501              		.global	_stat
-ARM GAS  /tmp/ccZ0JBmb.s 			page 12
+ARM GAS  /tmp/ccxa4uDH.s 			page 12
 
 
  502              		.syntax unified
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  549              		.cfi_offset 14, -4
  157:Core/Src/syscalls.c ****   (void)old;
  550              		.loc 1 157 3 is_stmt 1 view .LVU114
-ARM GAS  /tmp/ccZ0JBmb.s 			page 13
+ARM GAS  /tmp/ccxa4uDH.s 			page 13
 
 
  158:Core/Src/syscalls.c ****   (void)new;
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  598              		.align	1
  599              		.global	_execve
  600              		.syntax unified
-ARM GAS  /tmp/ccZ0JBmb.s 			page 14
+ARM GAS  /tmp/ccxa4uDH.s 			page 14
 
 
  601              		.thumb
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  652              		.file 2 "/usr/include/newlib/machine/_default_types.h"
  653              		.file 3 "/usr/include/newlib/sys/_types.h"
  654              		.file 4 "/usr/include/newlib/sys/_timeval.h"
-ARM GAS  /tmp/ccZ0JBmb.s 			page 15
+ARM GAS  /tmp/ccxa4uDH.s 			page 15
 
 
  655              		.file 5 "/usr/include/newlib/sys/_timespec.h"
@@ -846,51 +846,51 @@ ARM GAS  /tmp/ccZ0JBmb.s 			page 1
  657              		.file 7 "/usr/include/newlib/sys/stat.h"
  658              		.file 8 "/usr/include/newlib/sys/times.h"
  659              		.file 9 "/usr/include/newlib/sys/errno.h"
-ARM GAS  /tmp/ccZ0JBmb.s 			page 16
+ARM GAS  /tmp/ccxa4uDH.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 syscalls.c
-     /tmp/ccZ0JBmb.s:16     .text.initialise_monitor_handles:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:24     .text.initialise_monitor_handles:0000000000000000 initialise_monitor_handles
-     /tmp/ccZ0JBmb.s:38     .text._getpid:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:45     .text._getpid:0000000000000000 _getpid
-     /tmp/ccZ0JBmb.s:60     .text._kill:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:67     .text._kill:0000000000000000 _kill
-     /tmp/ccZ0JBmb.s:96     .text._exit:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:103    .text._exit:0000000000000000 _exit
-     /tmp/ccZ0JBmb.s:130    .text._read:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:137    .text._read:0000000000000000 _read
-     /tmp/ccZ0JBmb.s:195    .text._write:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:202    .text._write:0000000000000000 _write
-     /tmp/ccZ0JBmb.s:254    .text._close:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:261    .text._close:0000000000000000 _close
-     /tmp/ccZ0JBmb.s:280    .text._fstat:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:287    .text._fstat:0000000000000000 _fstat
-     /tmp/ccZ0JBmb.s:310    .text._isatty:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:317    .text._isatty:0000000000000000 _isatty
-     /tmp/ccZ0JBmb.s:336    .text._lseek:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:343    .text._lseek:0000000000000000 _lseek
-     /tmp/ccZ0JBmb.s:364    .text._open:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:371    .text._open:0000000000000000 _open
-     /tmp/ccZ0JBmb.s:404    .text._wait:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:411    .text._wait:0000000000000000 _wait
-     /tmp/ccZ0JBmb.s:439    .text._unlink:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:446    .text._unlink:0000000000000000 _unlink
-     /tmp/ccZ0JBmb.s:474    .text._times:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:481    .text._times:0000000000000000 _times
-     /tmp/ccZ0JBmb.s:500    .text._stat:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:507    .text._stat:0000000000000000 _stat
-     /tmp/ccZ0JBmb.s:530    .text._link:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:537    .text._link:0000000000000000 _link
-     /tmp/ccZ0JBmb.s:566    .text._fork:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:573    .text._fork:0000000000000000 _fork
-     /tmp/ccZ0JBmb.s:598    .text._execve:0000000000000000 $t
-     /tmp/ccZ0JBmb.s:605    .text._execve:0000000000000000 _execve
-     /tmp/ccZ0JBmb.s:646    .data.environ:0000000000000000 environ
-     /tmp/ccZ0JBmb.s:640    .bss.__env:0000000000000000 __env
-     /tmp/ccZ0JBmb.s:637    .bss.__env:0000000000000000 $d
-     /tmp/ccZ0JBmb.s:643    .data.environ:0000000000000000 $d
+     /tmp/ccxa4uDH.s:16     .text.initialise_monitor_handles:0000000000000000 $t
+     /tmp/ccxa4uDH.s:24     .text.initialise_monitor_handles:0000000000000000 initialise_monitor_handles
+     /tmp/ccxa4uDH.s:38     .text._getpid:0000000000000000 $t
+     /tmp/ccxa4uDH.s:45     .text._getpid:0000000000000000 _getpid
+     /tmp/ccxa4uDH.s:60     .text._kill:0000000000000000 $t
+     /tmp/ccxa4uDH.s:67     .text._kill:0000000000000000 _kill
+     /tmp/ccxa4uDH.s:96     .text._exit:0000000000000000 $t
+     /tmp/ccxa4uDH.s:103    .text._exit:0000000000000000 _exit
+     /tmp/ccxa4uDH.s:130    .text._read:0000000000000000 $t
+     /tmp/ccxa4uDH.s:137    .text._read:0000000000000000 _read
+     /tmp/ccxa4uDH.s:195    .text._write:0000000000000000 $t
+     /tmp/ccxa4uDH.s:202    .text._write:0000000000000000 _write
+     /tmp/ccxa4uDH.s:254    .text._close:0000000000000000 $t
+     /tmp/ccxa4uDH.s:261    .text._close:0000000000000000 _close
+     /tmp/ccxa4uDH.s:280    .text._fstat:0000000000000000 $t
+     /tmp/ccxa4uDH.s:287    .text._fstat:0000000000000000 _fstat
+     /tmp/ccxa4uDH.s:310    .text._isatty:0000000000000000 $t
+     /tmp/ccxa4uDH.s:317    .text._isatty:0000000000000000 _isatty
+     /tmp/ccxa4uDH.s:336    .text._lseek:0000000000000000 $t
+     /tmp/ccxa4uDH.s:343    .text._lseek:0000000000000000 _lseek
+     /tmp/ccxa4uDH.s:364    .text._open:0000000000000000 $t
+     /tmp/ccxa4uDH.s:371    .text._open:0000000000000000 _open
+     /tmp/ccxa4uDH.s:404    .text._wait:0000000000000000 $t
+     /tmp/ccxa4uDH.s:411    .text._wait:0000000000000000 _wait
+     /tmp/ccxa4uDH.s:439    .text._unlink:0000000000000000 $t
+     /tmp/ccxa4uDH.s:446    .text._unlink:0000000000000000 _unlink
+     /tmp/ccxa4uDH.s:474    .text._times:0000000000000000 $t
+     /tmp/ccxa4uDH.s:481    .text._times:0000000000000000 _times
+     /tmp/ccxa4uDH.s:500    .text._stat:0000000000000000 $t
+     /tmp/ccxa4uDH.s:507    .text._stat:0000000000000000 _stat
+     /tmp/ccxa4uDH.s:530    .text._link:0000000000000000 $t
+     /tmp/ccxa4uDH.s:537    .text._link:0000000000000000 _link
+     /tmp/ccxa4uDH.s:566    .text._fork:0000000000000000 $t
+     /tmp/ccxa4uDH.s:573    .text._fork:0000000000000000 _fork
+     /tmp/ccxa4uDH.s:598    .text._execve:0000000000000000 $t
+     /tmp/ccxa4uDH.s:605    .text._execve:0000000000000000 _execve
+     /tmp/ccxa4uDH.s:646    .data.environ:0000000000000000 environ
+     /tmp/ccxa4uDH.s:640    .bss.__env:0000000000000000 __env
+     /tmp/ccxa4uDH.s:637    .bss.__env:0000000000000000 $d
+     /tmp/ccxa4uDH.s:643    .data.environ:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 __errno
