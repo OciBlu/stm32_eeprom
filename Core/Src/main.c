@@ -28,6 +28,8 @@
 #include "ssd1306.h"
 #include "bitmap.h"
 
+#include "stm32f1xx_hal_i2c.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
