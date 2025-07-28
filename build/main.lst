@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccyJ6veB.s 			page 1
+ARM GAS  /tmp/ccA1fUEE.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
   31:Core/Src/main.c **** #include "stm32f1xx_hal_i2c.h"
   32:Core/Src/main.c **** 
   33:Core/Src/main.c **** /* USER CODE END Includes */
-ARM GAS  /tmp/ccyJ6veB.s 			page 2
+ARM GAS  /tmp/ccA1fUEE.s 			page 2
 
 
   34:Core/Src/main.c **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
   88:Core/Src/main.c **** 
   89:Core/Src/main.c ****   /* USER CODE BEGIN 1 */
   90:Core/Src/main.c ****   uint8_t i = 0, ret;
-ARM GAS  /tmp/ccyJ6veB.s 			page 3
+ARM GAS  /tmp/ccA1fUEE.s 			page 3
 
 
   91:Core/Src/main.c **** 
@@ -146,13 +146,13 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  113:Core/Src/main.c ****   MX_USART1_UART_Init();
  114:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
  115:Core/Src/main.c ****   HAL_Delay(1000);
- 116:Core/Src/main.c ****  
- 117:Core/Src/main.c ****     /*-[ I2C Bus Scanning ]-*/
+ 116:Core/Src/main.c ****   /*
+ 117:Core/Src/main.c ****     //-[ I2C Bus Scanning ]-
  118:Core/Src/main.c ****     HAL_UART_Transmit(&huart1, StartMSG, sizeof(StartMSG), 10000);
  119:Core/Src/main.c ****     for(i=1; i<128; i++)
  120:Core/Src/main.c ****     {
  121:Core/Src/main.c ****         ret = HAL_I2C_IsDeviceReady(&hi2c1, (uint16_t)(i<<1), 3, 5);
- 122:Core/Src/main.c ****         if (ret != HAL_OK) /* No ACK Received At That Address */
+ 122:Core/Src/main.c ****         if (ret != HAL_OK) ///No ACK Received At That Address
  123:Core/Src/main.c ****         {
  124:Core/Src/main.c ****             HAL_UART_Transmit(&huart1, Space, sizeof(Space), 10000);
  125:Core/Src/main.c ****         }
@@ -163,14 +163,14 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  130:Core/Src/main.c ****         }
  131:Core/Src/main.c ****     }
  132:Core/Src/main.c ****     HAL_UART_Transmit(&huart1, EndMSG, sizeof(EndMSG), 10000);
- 133:Core/Src/main.c ****     /*--[ Scanning Done ]--*/
- 134:Core/Src/main.c **** 
+ 133:Core/Src/main.c ****     //--[ Scanning Done ]--
+ 134:Core/Src/main.c ****   */
  135:Core/Src/main.c **** 
- 136:Core/Src/main.c ****   /*
+ 136:Core/Src/main.c ****   
  137:Core/Src/main.c ****   //HAL_I2C_Mem_Write(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t M
  138:Core/Src/main.c ****   HAL_I2C_Mem_Write(&hi2c1, (0xA0 << 1), 0, 2, Data_Write, sizeof(Data_Write), HAL_MAX_DELAY);
  139:Core/Src/main.c ****   HAL_Delay(1000);
- 140:Core/Src/main.c ****   HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, (0xA0 << 1) | 0x00 , 0, 2, Data_Read, sizeof(
+ 140:Core/Src/main.c ****   HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, (0xA0 << 1), 0, 2, Data_Read, sizeof(Data_Rea
  141:Core/Src/main.c **** 
  142:Core/Src/main.c ****   if (status == HAL_OK){
  143:Core/Src/main.c ****     sprintf(data_memori, "data: %hhn ", Data_Read);
@@ -178,14 +178,14 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  145:Core/Src/main.c ****     HAL_Delay(5);
  146:Core/Src/main.c ****   }
  147:Core/Src/main.c ****   else {
-ARM GAS  /tmp/ccyJ6veB.s 			page 4
+ARM GAS  /tmp/ccA1fUEE.s 			page 4
 
 
  148:Core/Src/main.c ****     sprintf(data_memori, "memori error! \r\n");
  149:Core/Src/main.c ****     HAL_UART_Transmit(&huart1,(uint8_t*)data_memori, strlen(data_memori), HAL_MAX_DELAY);
  150:Core/Src/main.c ****     HAL_Delay(5);
  151:Core/Src/main.c ****   }
- 152:Core/Src/main.c ****   */
+ 152:Core/Src/main.c ****   
  153:Core/Src/main.c ****  
  154:Core/Src/main.c **** 
  155:Core/Src/main.c ****   /* USER CODE END 2 */
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  202:Core/Src/main.c ****   {
  203:Core/Src/main.c ****     Error_Handler();
  204:Core/Src/main.c ****   }
-ARM GAS  /tmp/ccyJ6veB.s 			page 5
+ARM GAS  /tmp/ccA1fUEE.s 			page 5
 
 
  205:Core/Src/main.c **** }
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  259:Core/Src/main.c ****   huart1.Init.StopBits = UART_STOPBITS_1;
  260:Core/Src/main.c ****   huart1.Init.Parity = UART_PARITY_NONE;
  261:Core/Src/main.c ****   huart1.Init.Mode = UART_MODE_TX_RX;
-ARM GAS  /tmp/ccyJ6veB.s 			page 6
+ARM GAS  /tmp/ccA1fUEE.s 			page 6
 
 
  262:Core/Src/main.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
   55 0018 42F00402 		orr	r2, r2, #4
   56 001c 9A61     		str	r2, [r3, #24]
   57              		.loc 1 286 3 view .LVU10
-ARM GAS  /tmp/ccyJ6veB.s 			page 7
+ARM GAS  /tmp/ccA1fUEE.s 			page 7
 
 
   58 001e 9A69     		ldr	r2, [r3, #24]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  298:Core/Src/main.c ****   * @brief  This function is executed in case of error occurrence.
  299:Core/Src/main.c ****   * @retval None
  300:Core/Src/main.c ****   */
-ARM GAS  /tmp/ccyJ6veB.s 			page 8
+ARM GAS  /tmp/ccA1fUEE.s 			page 8
 
 
  301:Core/Src/main.c **** void Error_Handler(void)
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
   40:Drivers/CMSIS/Device/ST/STM32F1xx/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
   41:Drivers/CMSIS/Device/ST/STM32F1xx/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   42:Drivers/CMSIS/Device/ST/STM32F1xx/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
-ARM GAS  /tmp/ccyJ6veB.s 			page 9
+ARM GAS  /tmp/ccA1fUEE.s 			page 9
 
 
   43:Drivers/CMSIS/Device/ST/STM32F1xx/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  135              		.thumb
  136              		.thumb_func
  137              		.fpu softvfp
-ARM GAS  /tmp/ccyJ6veB.s 			page 10
+ARM GAS  /tmp/ccA1fUEE.s 			page 10
 
 
  139              	MX_I2C1_Init:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  229:Core/Src/main.c ****   hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
  177              		.loc 1 229 30 is_stmt 0 view .LVU43
  178 001c C361     		str	r3, [r0, #28]
-ARM GAS  /tmp/ccyJ6veB.s 			page 11
+ARM GAS  /tmp/ccA1fUEE.s 			page 11
 
 
  230:Core/Src/main.c ****   if (HAL_I2C_Init(&hi2c1) != HAL_OK)
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  225 0006 0360     		str	r3, [r0]
  257:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
  226              		.loc 1 257 3 is_stmt 1 view .LVU54
-ARM GAS  /tmp/ccyJ6veB.s 			page 12
+ARM GAS  /tmp/ccA1fUEE.s 			page 12
 
 
  257:Core/Src/main.c ****   huart1.Init.WordLength = UART_WORDLENGTH_8B;
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  263 002a 00BF     		.align	2
  264              	.L17:
  265 002c 00000000 		.word	.LANCHOR1
-ARM GAS  /tmp/ccyJ6veB.s 			page 13
+ARM GAS  /tmp/ccA1fUEE.s 			page 13
 
 
  266 0030 00380140 		.word	1073821696
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  313 0022 0793     		str	r3, [sp, #28]
  182:Core/Src/main.c ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
  314              		.loc 1 182 3 is_stmt 1 view .LVU82
-ARM GAS  /tmp/ccyJ6veB.s 			page 14
+ARM GAS  /tmp/ccA1fUEE.s 			page 14
 
 
  183:Core/Src/main.c ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  350 0046 4FF48062 		mov	r2, #1024
  351 004a 0492     		str	r2, [sp, #16]
  199:Core/Src/main.c **** 
-ARM GAS  /tmp/ccyJ6veB.s 			page 15
+ARM GAS  /tmp/ccA1fUEE.s 			page 15
 
 
  352              		.loc 1 199 3 is_stmt 1 view .LVU102
@@ -880,989 +880,1011 @@ ARM GAS  /tmp/ccyJ6veB.s 			page 1
  382              		.section	.rodata.main.str1.4,"aMS",%progbits,1
  383              		.align	2
  384              	.LC0:
- 385 0000 30782558 		.ascii	"0x%X\000"
- 385      00
- 386              		.section	.text.main,"ax",%progbits
- 387              		.align	1
- 388              		.global	main
- 389              		.syntax unified
- 390              		.thumb
- 391              		.thumb_func
- 392              		.fpu softvfp
- 394              	main:
- 395              	.LFB66:
+ 385 0000 64617461 		.ascii	"data: %hhn \000"
+ 385      3A202568 
+ 385      686E2000 
+ 386              		.align	2
+ 387              	.LC1:
+ 388 000c 6D656D6F 		.ascii	"memori error! \015\012\000"
+ 388      72692065 
+ 388      72726F72 
+ 388      21200D0A 
+ 388      00
+ 389              		.section	.text.main,"ax",%progbits
+ 390              		.align	1
+ 391              		.global	main
+ 392              		.syntax unified
+ 393              		.thumb
+ 394              		.thumb_func
+ 395              		.fpu softvfp
+ 397              	main:
+ARM GAS  /tmp/ccA1fUEE.s 			page 16
+
+
+ 398              	.LFB66:
   87:Core/Src/main.c **** 
- 396              		.loc 1 87 1 view -0
- 397              		.cfi_startproc
- 398              		@ args = 0, pretend = 0, frame = 0
- 399              		@ frame_needed = 0, uses_anonymous_args = 0
- 400 0000 38B5     		push	{r3, r4, r5, lr}
- 401              	.LCFI8:
-ARM GAS  /tmp/ccyJ6veB.s 			page 16
-
-
- 402              		.cfi_def_cfa_offset 16
- 403              		.cfi_offset 3, -16
- 404              		.cfi_offset 4, -12
- 405              		.cfi_offset 5, -8
- 406              		.cfi_offset 14, -4
+ 399              		.loc 1 87 1 view -0
+ 400              		.cfi_startproc
+ 401              		@ args = 0, pretend = 0, frame = 0
+ 402              		@ frame_needed = 0, uses_anonymous_args = 0
+ 403 0000 70B5     		push	{r4, r5, r6, lr}
+ 404              	.LCFI8:
+ 405              		.cfi_def_cfa_offset 16
+ 406              		.cfi_offset 4, -16
+ 407              		.cfi_offset 5, -12
+ 408              		.cfi_offset 6, -8
+ 409              		.cfi_offset 14, -4
+ 410 0002 84B0     		sub	sp, sp, #16
+ 411              	.LCFI9:
+ 412              		.cfi_def_cfa_offset 32
   90:Core/Src/main.c **** 
- 407              		.loc 1 90 3 view .LVU111
- 408              	.LVL9:
+ 413              		.loc 1 90 3 view .LVU111
+ 414              	.LVL9:
   97:Core/Src/main.c **** 
- 409              		.loc 1 97 3 view .LVU112
- 410 0002 FFF7FEFF 		bl	HAL_Init
- 411              	.LVL10:
+ 415              		.loc 1 97 3 view .LVU112
+ 416 0004 FFF7FEFF 		bl	HAL_Init
+ 417              	.LVL10:
  100:Core/Src/main.c ****   /* USER CODE END Init */
- 412              		.loc 1 100 3 view .LVU113
- 413 0006 6420     		movs	r0, #100
- 414 0008 FFF7FEFF 		bl	HAL_Delay
- 415              	.LVL11:
+ 418              		.loc 1 100 3 view .LVU113
+ 419 0008 6420     		movs	r0, #100
+ 420 000a FFF7FEFF 		bl	HAL_Delay
+ 421              	.LVL11:
  104:Core/Src/main.c **** 
- 416              		.loc 1 104 3 view .LVU114
- 417 000c FFF7FEFF 		bl	SystemClock_Config
- 418              	.LVL12:
+ 422              		.loc 1 104 3 view .LVU114
+ 423 000e FFF7FEFF 		bl	SystemClock_Config
+ 424              	.LVL12:
  111:Core/Src/main.c ****   MX_I2C1_Init();
- 419              		.loc 1 111 3 view .LVU115
- 420 0010 FFF7FEFF 		bl	MX_GPIO_Init
- 421              	.LVL13:
+ 425              		.loc 1 111 3 view .LVU115
+ 426 0012 FFF7FEFF 		bl	MX_GPIO_Init
+ 427              	.LVL13:
  112:Core/Src/main.c ****   MX_USART1_UART_Init();
- 422              		.loc 1 112 3 view .LVU116
- 423 0014 FFF7FEFF 		bl	MX_I2C1_Init
- 424              	.LVL14:
+ 428              		.loc 1 112 3 view .LVU116
+ 429 0016 FFF7FEFF 		bl	MX_I2C1_Init
+ 430              	.LVL14:
  113:Core/Src/main.c ****   /* USER CODE BEGIN 2 */
- 425              		.loc 1 113 3 view .LVU117
- 426 0018 FFF7FEFF 		bl	MX_USART1_UART_Init
- 427              	.LVL15:
- 115:Core/Src/main.c ****  
- 428              		.loc 1 115 3 view .LVU118
- 429 001c 4FF47A70 		mov	r0, #1000
- 430 0020 FFF7FEFF 		bl	HAL_Delay
- 431              	.LVL16:
- 118:Core/Src/main.c ****     for(i=1; i<128; i++)
- 432              		.loc 1 118 5 view .LVU119
- 433 0024 42F21073 		movw	r3, #10000
- 434 0028 1A22     		movs	r2, #26
- 435 002a 1849     		ldr	r1, .L33
- 436 002c 1848     		ldr	r0, .L33+4
- 437 002e FFF7FEFF 		bl	HAL_UART_Transmit
- 438              	.LVL17:
- 119:Core/Src/main.c ****     {
- 439              		.loc 1 119 5 view .LVU120
- 119:Core/Src/main.c ****     {
- 440              		.loc 1 119 10 is_stmt 0 view .LVU121
- 441 0032 0124     		movs	r4, #1
- 119:Core/Src/main.c ****     {
- 442              		.loc 1 119 5 view .LVU122
- 443 0034 0EE0     		b	.L26
- 444              	.LVL18:
- 445              	.L27:
- 126:Core/Src/main.c ****         {
-ARM GAS  /tmp/ccyJ6veB.s 			page 17
+ 431              		.loc 1 113 3 view .LVU117
+ 432 001a FFF7FEFF 		bl	MX_USART1_UART_Init
+ 433              	.LVL15:
+ 115:Core/Src/main.c ****   /*
+ 434              		.loc 1 115 3 view .LVU118
+ 435 001e 4FF47A70 		mov	r0, #1000
+ 436 0022 FFF7FEFF 		bl	HAL_Delay
+ 437              	.LVL16:
+ 138:Core/Src/main.c ****   HAL_Delay(1000);
+ 438              		.loc 1 138 3 view .LVU119
+ 439 0026 244C     		ldr	r4, .L29
+ 440 0028 4FF0FF36 		mov	r6, #-1
+ 441 002c 0296     		str	r6, [sp, #8]
+ 442 002e 0A25     		movs	r5, #10
+ 443 0030 0195     		str	r5, [sp, #4]
+ 444 0032 224B     		ldr	r3, .L29+4
+ARM GAS  /tmp/ccA1fUEE.s 			page 17
 
 
- 446              		.loc 1 126 14 is_stmt 1 view .LVU123
- 128:Core/Src/main.c ****             HAL_UART_Transmit(&huart1, Buffer, sizeof(Buffer), 10000);
- 447              		.loc 1 128 13 view .LVU124
- 448 0036 174D     		ldr	r5, .L33+8
- 449 0038 2246     		mov	r2, r4
- 450 003a 1749     		ldr	r1, .L33+12
- 451 003c 2846     		mov	r0, r5
- 452              	.LVL19:
- 128:Core/Src/main.c ****             HAL_UART_Transmit(&huart1, Buffer, sizeof(Buffer), 10000);
- 453              		.loc 1 128 13 is_stmt 0 view .LVU125
- 454 003e FFF7FEFF 		bl	sprintf
- 455              	.LVL20:
- 129:Core/Src/main.c ****         }
- 456              		.loc 1 129 13 is_stmt 1 view .LVU126
- 457 0042 42F21073 		movw	r3, #10000
- 458 0046 1922     		movs	r2, #25
- 459 0048 2946     		mov	r1, r5
- 460 004a 1148     		ldr	r0, .L33+4
- 461 004c FFF7FEFF 		bl	HAL_UART_Transmit
- 462              	.LVL21:
- 463              	.L28:
- 119:Core/Src/main.c ****     {
- 464              		.loc 1 119 21 discriminator 2 view .LVU127
- 119:Core/Src/main.c ****     {
- 465              		.loc 1 119 22 is_stmt 0 discriminator 2 view .LVU128
- 466 0050 0134     		adds	r4, r4, #1
- 467              	.LVL22:
- 119:Core/Src/main.c ****     {
- 468              		.loc 1 119 22 discriminator 2 view .LVU129
- 469 0052 E4B2     		uxtb	r4, r4
- 470              	.LVL23:
- 471              	.L26:
- 119:Core/Src/main.c ****     {
- 472              		.loc 1 119 14 is_stmt 1 discriminator 1 view .LVU130
- 119:Core/Src/main.c ****     {
- 473              		.loc 1 119 5 is_stmt 0 discriminator 1 view .LVU131
- 474 0054 14F0800F 		tst	r4, #128
- 475 0058 0FD1     		bne	.L32
- 121:Core/Src/main.c ****         if (ret != HAL_OK) /* No ACK Received At That Address */
- 476              		.loc 1 121 9 is_stmt 1 view .LVU132
- 121:Core/Src/main.c ****         if (ret != HAL_OK) /* No ACK Received At That Address */
- 477              		.loc 1 121 15 is_stmt 0 view .LVU133
- 478 005a 0523     		movs	r3, #5
- 479 005c 0322     		movs	r2, #3
- 480 005e 6100     		lsls	r1, r4, #1
- 481 0060 0E48     		ldr	r0, .L33+16
- 482 0062 FFF7FEFF 		bl	HAL_I2C_IsDeviceReady
- 483              	.LVL24:
- 122:Core/Src/main.c ****         {
- 484              		.loc 1 122 9 is_stmt 1 view .LVU134
- 122:Core/Src/main.c ****         {
- 485              		.loc 1 122 12 is_stmt 0 view .LVU135
- 486 0066 0028     		cmp	r0, #0
- 487 0068 E5D0     		beq	.L27
- 124:Core/Src/main.c ****         }
- 488              		.loc 1 124 13 is_stmt 1 view .LVU136
- 489 006a 42F21073 		movw	r3, #10000
-ARM GAS  /tmp/ccyJ6veB.s 			page 18
+ 445 0034 0093     		str	r3, [sp]
+ 446 0036 0223     		movs	r3, #2
+ 447 0038 0022     		movs	r2, #0
+ 448 003a 4FF4A071 		mov	r1, #320
+ 449 003e 2046     		mov	r0, r4
+ 450 0040 FFF7FEFF 		bl	HAL_I2C_Mem_Write
+ 451              	.LVL17:
+ 139:Core/Src/main.c ****   HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, (0xA0 << 1), 0, 2, Data_Read, sizeof(Data_Rea
+ 452              		.loc 1 139 3 view .LVU120
+ 453 0044 4FF47A70 		mov	r0, #1000
+ 454 0048 FFF7FEFF 		bl	HAL_Delay
+ 455              	.LVL18:
+ 140:Core/Src/main.c **** 
+ 456              		.loc 1 140 3 view .LVU121
+ 140:Core/Src/main.c **** 
+ 457              		.loc 1 140 30 is_stmt 0 view .LVU122
+ 458 004c 0296     		str	r6, [sp, #8]
+ 459 004e 0195     		str	r5, [sp, #4]
+ 460 0050 1B4B     		ldr	r3, .L29+8
+ 461 0052 0093     		str	r3, [sp]
+ 462 0054 0223     		movs	r3, #2
+ 463 0056 0022     		movs	r2, #0
+ 464 0058 4FF4A071 		mov	r1, #320
+ 465 005c 2046     		mov	r0, r4
+ 466 005e FFF7FEFF 		bl	HAL_I2C_Mem_Read
+ 467              	.LVL19:
+ 142:Core/Src/main.c ****     sprintf(data_memori, "data: %hhn ", Data_Read);
+ 468              		.loc 1 142 3 is_stmt 1 view .LVU123
+ 142:Core/Src/main.c ****     sprintf(data_memori, "data: %hhn ", Data_Read);
+ 469              		.loc 1 142 6 is_stmt 0 view .LVU124
+ 470 0062 90B9     		cbnz	r0, .L26
+ 143:Core/Src/main.c ****     HAL_UART_Transmit(&huart1,(uint8_t*)data_memori, strlen(data_memori), HAL_MAX_DELAY);
+ 471              		.loc 1 143 5 is_stmt 1 view .LVU125
+ 472 0064 174C     		ldr	r4, .L29+12
+ 473 0066 164A     		ldr	r2, .L29+8
+ 474 0068 1749     		ldr	r1, .L29+16
+ 475 006a 2046     		mov	r0, r4
+ 476              	.LVL20:
+ 143:Core/Src/main.c ****     HAL_UART_Transmit(&huart1,(uint8_t*)data_memori, strlen(data_memori), HAL_MAX_DELAY);
+ 477              		.loc 1 143 5 is_stmt 0 view .LVU126
+ 478 006c FFF7FEFF 		bl	sprintf
+ 479              	.LVL21:
+ 144:Core/Src/main.c ****     HAL_Delay(5);
+ 480              		.loc 1 144 5 is_stmt 1 view .LVU127
+ 144:Core/Src/main.c ****     HAL_Delay(5);
+ 481              		.loc 1 144 54 is_stmt 0 view .LVU128
+ 482 0070 2046     		mov	r0, r4
+ 483 0072 FFF7FEFF 		bl	strlen
+ 484              	.LVL22:
+ 144:Core/Src/main.c ****     HAL_Delay(5);
+ 485              		.loc 1 144 5 view .LVU129
+ 486 0076 3346     		mov	r3, r6
+ 487 0078 82B2     		uxth	r2, r0
+ 488 007a 2146     		mov	r1, r4
+ 489 007c 1348     		ldr	r0, .L29+20
+ 490 007e FFF7FEFF 		bl	HAL_UART_Transmit
+ 491              	.LVL23:
+ARM GAS  /tmp/ccA1fUEE.s 			page 18
 
 
- 490 006e 0422     		movs	r2, #4
- 491 0070 0B49     		ldr	r1, .L33+20
- 492 0072 0748     		ldr	r0, .L33+4
- 493              	.LVL25:
- 124:Core/Src/main.c ****         }
- 494              		.loc 1 124 13 is_stmt 0 view .LVU137
- 495 0074 FFF7FEFF 		bl	HAL_UART_Transmit
- 496              	.LVL26:
- 497 0078 EAE7     		b	.L28
- 498              	.L32:
- 132:Core/Src/main.c ****     /*--[ Scanning Done ]--*/
- 499              		.loc 1 132 5 is_stmt 1 view .LVU138
- 500 007a 42F21073 		movw	r3, #10000
- 501 007e 0B22     		movs	r2, #11
- 502 0080 0849     		ldr	r1, .L33+24
- 503 0082 0348     		ldr	r0, .L33+4
- 504 0084 FFF7FEFF 		bl	HAL_UART_Transmit
- 505              	.LVL27:
- 506              	.L30:
+ 145:Core/Src/main.c ****   }
+ 492              		.loc 1 145 5 is_stmt 1 view .LVU130
+ 493 0082 0520     		movs	r0, #5
+ 494 0084 FFF7FEFF 		bl	HAL_Delay
+ 495              	.LVL24:
+ 496              	.L27:
  159:Core/Src/main.c ****   {
- 507              		.loc 1 159 3 discriminator 1 view .LVU139
+ 497              		.loc 1 159 3 discriminator 1 view .LVU131
  164:Core/Src/main.c ****   /* USER CODE END 3 */
- 508              		.loc 1 164 3 discriminator 1 view .LVU140
+ 498              		.loc 1 164 3 discriminator 1 view .LVU132
  159:Core/Src/main.c ****   {
- 509              		.loc 1 159 9 discriminator 1 view .LVU141
- 510 0088 FEE7     		b	.L30
- 511              	.L34:
- 512 008a 00BF     		.align	2
- 513              	.L33:
- 514 008c 00000000 		.word	.LANCHOR2
- 515 0090 00000000 		.word	.LANCHOR1
- 516 0094 00000000 		.word	.LANCHOR4
- 517 0098 00000000 		.word	.LC0
- 518 009c 00000000 		.word	.LANCHOR0
- 519 00a0 00000000 		.word	.LANCHOR3
- 520 00a4 00000000 		.word	.LANCHOR5
- 521              		.cfi_endproc
- 522              	.LFE66:
- 524              		.global	EndMSG
- 525              		.global	StartMSG
- 526              		.global	Space
- 527              		.global	Buffer
- 528              		.global	data_memori
- 529              		.global	Data_Read
- 530              		.global	Data_Write
- 531              		.global	huart1
- 532              		.global	hi2c1
- 533              		.global	mata_merem
- 534              		.global	mata_melek
- 535              		.section	.bss.Buffer,"aw",%nobits
- 536              		.align	2
- 537              		.set	.LANCHOR4,. + 0
- 540              	Buffer:
- 541 0000 00000000 		.space	25
- 541      00000000 
- 541      00000000 
- 541      00000000 
-ARM GAS  /tmp/ccyJ6veB.s 			page 19
+ 499              		.loc 1 159 9 discriminator 1 view .LVU133
+ 500 0088 FEE7     		b	.L27
+ 501              	.LVL25:
+ 502              	.L26:
+ 148:Core/Src/main.c ****     HAL_UART_Transmit(&huart1,(uint8_t*)data_memori, strlen(data_memori), HAL_MAX_DELAY);
+ 503              		.loc 1 148 5 view .LVU134
+ 504 008a 0E4C     		ldr	r4, .L29+12
+ 505 008c A446     		mov	ip, r4
+ 506 008e 104D     		ldr	r5, .L29+24
+ 507 0090 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 508              	.LVL26:
+ 148:Core/Src/main.c ****     HAL_UART_Transmit(&huart1,(uint8_t*)data_memori, strlen(data_memori), HAL_MAX_DELAY);
+ 509              		.loc 1 148 5 is_stmt 0 view .LVU135
+ 510 0092 ACE80F00 		stmia	ip!, {r0, r1, r2, r3}
+ 511 0096 2B68     		ldr	r3, [r5]
+ 512 0098 8CF80030 		strb	r3, [ip]
+ 149:Core/Src/main.c ****     HAL_Delay(5);
+ 513              		.loc 1 149 5 is_stmt 1 view .LVU136
+ 149:Core/Src/main.c ****     HAL_Delay(5);
+ 514              		.loc 1 149 54 is_stmt 0 view .LVU137
+ 515 009c 2046     		mov	r0, r4
+ 516 009e FFF7FEFF 		bl	strlen
+ 517              	.LVL27:
+ 149:Core/Src/main.c ****     HAL_Delay(5);
+ 518              		.loc 1 149 5 view .LVU138
+ 519 00a2 4FF0FF33 		mov	r3, #-1
+ 520 00a6 82B2     		uxth	r2, r0
+ 521 00a8 2146     		mov	r1, r4
+ 522 00aa 0848     		ldr	r0, .L29+20
+ 523 00ac FFF7FEFF 		bl	HAL_UART_Transmit
+ 524              	.LVL28:
+ 150:Core/Src/main.c ****   }
+ 525              		.loc 1 150 5 is_stmt 1 view .LVU139
+ 526 00b0 0520     		movs	r0, #5
+ 527 00b2 FFF7FEFF 		bl	HAL_Delay
+ 528              	.LVL29:
+ 529 00b6 E7E7     		b	.L27
+ 530              	.L30:
+ 531              		.align	2
+ 532              	.L29:
+ 533 00b8 00000000 		.word	.LANCHOR0
+ 534 00bc 00000000 		.word	.LANCHOR2
+ 535 00c0 00000000 		.word	.LANCHOR3
+ 536 00c4 00000000 		.word	.LANCHOR4
+ 537 00c8 00000000 		.word	.LC0
+ 538 00cc 00000000 		.word	.LANCHOR1
+ARM GAS  /tmp/ccA1fUEE.s 			page 19
 
 
- 541      00000000 
- 542              		.section	.bss.Data_Read,"aw",%nobits
- 543              		.align	2
- 546              	Data_Read:
- 547 0000 00000000 		.space	10
- 547      00000000 
- 547      0000
- 548              		.section	.bss.data_memori,"aw",%nobits
- 549              		.align	2
- 552              	data_memori:
- 553 0000 00000000 		.space	25
- 553      00000000 
- 553      00000000 
- 553      00000000 
- 553      00000000 
- 554              		.section	.bss.hi2c1,"aw",%nobits
+ 539 00d0 0C000000 		.word	.LC1
+ 540              		.cfi_endproc
+ 541              	.LFE66:
+ 543              		.global	EndMSG
+ 544              		.global	StartMSG
+ 545              		.global	Space
+ 546              		.global	Buffer
+ 547              		.global	data_memori
+ 548              		.global	Data_Read
+ 549              		.global	Data_Write
+ 550              		.global	huart1
+ 551              		.global	hi2c1
+ 552              		.global	mata_merem
+ 553              		.global	mata_melek
+ 554              		.section	.bss.Buffer,"aw",%nobits
  555              		.align	2
- 556              		.set	.LANCHOR0,. + 0
- 559              	hi2c1:
- 560 0000 00000000 		.space	84
- 560      00000000 
- 560      00000000 
- 560      00000000 
- 560      00000000 
- 561              		.section	.bss.huart1,"aw",%nobits
- 562              		.align	2
- 563              		.set	.LANCHOR1,. + 0
- 566              	huart1:
- 567 0000 00000000 		.space	72
- 567      00000000 
- 567      00000000 
- 567      00000000 
- 567      00000000 
- 568              		.section	.data.Data_Write,"aw"
- 569              		.align	2
- 572              	Data_Write:
- 573 0000 5400     		.ascii	"T\000"
- 574 0002 00000000 		.space	8
- 574      00000000 
- 575              		.section	.data.EndMSG,"aw"
- 576              		.align	2
- 577              		.set	.LANCHOR5,. + 0
- 580              	EndMSG:
- 581 0000 446F6E65 		.ascii	"Done! \015\012\015\012\000"
- 581      21200D0A 
- 581      0D0A00
- 582              		.section	.data.Space,"aw"
- 583              		.align	2
- 584              		.set	.LANCHOR3,. + 0
- 587              	Space:
- 588 0000 202D2000 		.ascii	" - \000"
- 589              		.section	.data.StartMSG,"aw"
- 590              		.align	2
- 591              		.set	.LANCHOR2,. + 0
- 594              	StartMSG:
- 595 0000 53746172 		.ascii	"Starting I2C Scanning: \015\012\000"
- 595      74696E67 
-ARM GAS  /tmp/ccyJ6veB.s 			page 20
+ 558              	Buffer:
+ 559 0000 00000000 		.space	25
+ 559      00000000 
+ 559      00000000 
+ 559      00000000 
+ 559      00000000 
+ 560              		.section	.bss.Data_Read,"aw",%nobits
+ 561              		.align	2
+ 562              		.set	.LANCHOR3,. + 0
+ 565              	Data_Read:
+ 566 0000 00000000 		.space	10
+ 566      00000000 
+ 566      0000
+ 567              		.section	.bss.data_memori,"aw",%nobits
+ 568              		.align	2
+ 569              		.set	.LANCHOR4,. + 0
+ 572              	data_memori:
+ 573 0000 00000000 		.space	25
+ 573      00000000 
+ 573      00000000 
+ 573      00000000 
+ 573      00000000 
+ 574              		.section	.bss.hi2c1,"aw",%nobits
+ 575              		.align	2
+ 576              		.set	.LANCHOR0,. + 0
+ 579              	hi2c1:
+ 580 0000 00000000 		.space	84
+ 580      00000000 
+ 580      00000000 
+ 580      00000000 
+ 580      00000000 
+ 581              		.section	.bss.huart1,"aw",%nobits
+ 582              		.align	2
+ 583              		.set	.LANCHOR1,. + 0
+ 586              	huart1:
+ 587 0000 00000000 		.space	72
+ 587      00000000 
+ 587      00000000 
+ 587      00000000 
+ 587      00000000 
+ 588              		.section	.data.Data_Write,"aw"
+ARM GAS  /tmp/ccA1fUEE.s 			page 20
 
 
- 595      20493243 
- 595      20536361 
- 595      6E6E696E 
- 596              		.section	.rodata.mata_melek,"a"
+ 589              		.align	2
+ 590              		.set	.LANCHOR2,. + 0
+ 593              	Data_Write:
+ 594 0000 5400     		.ascii	"T\000"
+ 595 0002 00000000 		.space	8
+ 595      00000000 
+ 596              		.section	.data.EndMSG,"aw"
  597              		.align	2
- 600              	mata_melek:
- 601 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 601      00000000 
- 601      00000000 
- 601      00
- 602 000d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 602      00000000 
- 602      00000000 
- 602      00
- 603 001a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 603      00000000 
- 603      00000000 
- 603      00
- 604 0027 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 604      00000000 
- 604      00000000 
- 604      00
- 605 0034 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 605      00000000 
- 605      00000000 
- 605      00
- 606 0041 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 606      00000000 
- 606      00000000 
- 606      00
- 607 004e 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 607      00000000 
- 607      00000000 
- 607      00
- 608 005b 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 608      00000000 
- 608      00000000 
- 608      00
- 609 0068 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 609      00000000 
- 609      00000000 
- 609      00
- 610 0075 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 610      00000000 
- 610      00000000 
- 610      00
- 611 0082 00000001 		.ascii	"\000\000\000\001\370\000\001\360\000\000\000\000\000"
- 611      F80001F0 
- 611      00000000 
- 611      00
- 612 008f 00000000 		.ascii	"\000\000\000\000\000\000\017\360\000\017\370\000\000"
- 612      00000FF0 
- 612      000FF800 
- 612      00
- 613 009c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000?\360\000\037\370"
- 613      00000000 
- 613      003FF000 
-ARM GAS  /tmp/ccyJ6veB.s 			page 21
-
-
- 613      1FF8
- 614 00aa 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\001\377\360"
- 614      00000000 
- 614      000001FF 
- 614      F0
- 615 00b7 003FFC00 		.ascii	"\000?\374\000\000\000\000\000\000\000\000\000\000\007"
- 615      00000000 
- 615      00000000 
- 615      0007
- 616 00c5 FFF0007F 		.ascii	"\377\360\000\177\374\000\000\000\000\000\000\000\000"
- 616      FC000000 
- 616      00000000 
- 616      00
- 617 00d2 00003FFF 		.ascii	"\000\000?\377\340\000\377\374\000\000\000\000\000\000"
- 617      E000FFFC 
- 617      00000000 
- 617      0000
- 618 00e0 00000003 		.ascii	"\000\000\000\003\377\377\340\000\377\376\002\000\000"
- 618      FFFFE000 
- 618      FFFE0200 
- 618      00
- 619 00ed 00000000 		.ascii	"\000\000\000\000\000\000\007\377\377\340\000\377\376"
- 619      000007FF 
- 619      FFE000FF 
- 619      FE
- 620 00fa 03000000 		.ascii	"\003\000\000\000\000\000\000\000\000\007\377\377\340"
+ 600              	EndMSG:
+ 601 0000 446F6E65 		.ascii	"Done! \015\012\015\012\000"
+ 601      21200D0A 
+ 601      0D0A00
+ 602              		.section	.data.Space,"aw"
+ 603              		.align	2
+ 606              	Space:
+ 607 0000 202D2000 		.ascii	" - \000"
+ 608              		.section	.data.StartMSG,"aw"
+ 609              		.align	2
+ 612              	StartMSG:
+ 613 0000 53746172 		.ascii	"Starting I2C Scanning: \015\012\000"
+ 613      74696E67 
+ 613      20493243 
+ 613      20536361 
+ 613      6E6E696E 
+ 614              		.section	.rodata.mata_melek,"a"
+ 615              		.align	2
+ 618              	mata_melek:
+ 619 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 619      00000000 
+ 619      00000000 
+ 619      00
+ 620 000d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  620      00000000 
- 620      0007FFFF 
- 620      E0
- 621 0107 00FFFE03 		.ascii	"\000\377\376\003\200\000\000\000\000\000\000\000\003"
- 621      80000000 
+ 620      00000000 
+ 620      00
+ 621 001a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  621      00000000 
- 621      03
- 622 0114 FFFFC000 		.ascii	"\377\377\300\000\377\376\003\300\000\000\000\000\000"
- 622      FFFE03C0 
+ 621      00000000 
+ 621      00
+ 622 0027 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 622      00000000 
  622      00000000 
  622      00
- 623 0121 000001FF 		.ascii	"\000\000\001\377\377\300\000\377\376\001\340\000\000"
- 623      FFC000FF 
- 623      FE01E000 
+ 623 0034 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 623      00000000 
+ 623      00000000 
  623      00
- 624 012e 00000000 		.ascii	"\000\000\000\000\000\000\377\377\300\000\377\376\001"
- 624      0000FFFF 
- 624      C000FFFE 
- 624      01
- 625 013b E0000000 		.ascii	"\340\000\000\000\000\000\000\000\000\177\377\300\000"
+ 624 0041 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 624      00000000 
+ 624      00000000 
+ 624      00
+ 625 004e 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  625      00000000 
- 625      007FFFC0 
+ 625      00000000 
  625      00
- 626 0148 FFFE01F0 		.ascii	"\377\376\001\360\000\000\000\000\000\000\000\000\177"
+ 626 005b 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  626      00000000 
+ARM GAS  /tmp/ccA1fUEE.s 			page 21
+
+
  626      00000000 
- 626      7F
- 627 0155 FFC0007F 		.ascii	"\377\300\000\177\376\001\370\000\000\000\000\000\000"
- 627      FE01F800 
+ 626      00
+ 627 0068 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 627      00000000 
  627      00000000 
  627      00
-ARM GAS  /tmp/ccyJ6veB.s 			page 22
-
-
- 628 0162 00003FFF 		.ascii	"\000\000?\377\300\000\177\376\000\370\000\000\000\000"
- 628      C0007FFE 
- 628      00F80000 
- 628      0000
- 629 0170 00000000 		.ascii	"\000\000\000\000\037\377\300\000?\376\000\374\000\000"
- 629      1FFFC000 
- 629      3FFE00FC 
- 629      0000
- 630 017e 00000000 		.ascii	"\000\000\000\000\000\000\007\377\300\000?\374\000\376"
- 630      000007FF 
- 630      C0003FFC 
- 630      00FE
- 631 018c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\003\377\300\000\037"
+ 628 0075 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 628      00000000 
+ 628      00000000 
+ 628      00
+ 629 0082 00000001 		.ascii	"\000\000\000\001\370\000\001\360\000\000\000\000\000"
+ 629      F80001F0 
+ 629      00000000 
+ 629      00
+ 630 008f 00000000 		.ascii	"\000\000\000\000\000\000\017\360\000\017\370\000\000"
+ 630      00000FF0 
+ 630      000FF800 
+ 630      00
+ 631 009c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000?\360\000\037\370"
  631      00000000 
- 631      03FFC000 
- 631      1F
- 632 0199 F800FE00 		.ascii	"\370\000\376\000\000\000\000\000\000\000\000\000\377"
+ 631      003FF000 
+ 631      1FF8
+ 632 00aa 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\001\377\360"
  632      00000000 
- 632      00000000 
- 632      FF
- 633 01a6 C0000FF0 		.ascii	"\300\000\017\360\000\376\000\000\000\000\000\000\000"
- 633      00FE0000 
+ 632      000001FF 
+ 632      F0
+ 633 00b7 003FFC00 		.ascii	"\000?\374\000\000\000\000\000\000\000\000\000\000\007"
  633      00000000 
- 633      00
- 634 01b3 00007FC0 		.ascii	"\000\000\177\300\000\000\000\000\377\000\000\000\000"
+ 633      00000000 
+ 633      0007
+ 634 00c5 FFF0007F 		.ascii	"\377\360\000\177\374\000\000\000\000\000\000\000\000"
+ 634      FC000000 
  634      00000000 
- 634      FF000000 
  634      00
- 635 01c0 00000000 		.ascii	"\000\000\000\000\000?\300\000\000\000\000\377\000\000"
- 635      003FC000 
- 635      000000FF 
+ 635 00d2 00003FFF 		.ascii	"\000\000?\377\340\000\377\374\000\000\000\000\000\000"
+ 635      E000FFFC 
+ 635      00000000 
  635      0000
- 636 01ce 00000000 		.ascii	"\000\000\000\000\000\000\000\037\300\000\000\000\000"
- 636      0000001F 
- 636      C0000000 
+ 636 00e0 00000003 		.ascii	"\000\000\000\003\377\377\340\000\377\376\002\000\000"
+ 636      FFFFE000 
+ 636      FFFE0200 
  636      00
- 637 01db FF000000 		.ascii	"\377\000\000\000\000\000\000\000\000\000\017\300\000"
- 637      00000000 
- 637      00000FC0 
- 637      00
- 638 01e8 000000FF 		.ascii	"\000\000\000\377\000\000\000\000\000\000\000\000\000"
+ 637 00ed 00000000 		.ascii	"\000\000\000\000\000\000\007\377\377\340\000\377\376"
+ 637      000007FF 
+ 637      FFE000FF 
+ 637      FE
+ 638 00fa 03000000 		.ascii	"\003\000\000\000\000\000\000\000\000\007\377\377\340"
  638      00000000 
- 638      00000000 
- 638      00
- 639 01f5 07E00000 		.ascii	"\007\340\000\000\000\000\377\000\000\000\000\000\000"
- 639      0000FF00 
+ 638      0007FFFF 
+ 638      E0
+ 639 0107 00FFFE03 		.ascii	"\000\377\376\003\200\000\000\000\000\000\000\000\003"
+ 639      80000000 
  639      00000000 
- 639      00
- 640 0202 00000003 		.ascii	"\000\000\000\003\340\000\000\000\000\377\000\000\000"
- 640      E0000000 
- 640      00FF0000 
+ 639      03
+ 640 0114 FFFFC000 		.ascii	"\377\377\300\000\377\376\003\300\000\000\000\000\000"
+ 640      FFFE03C0 
+ 640      00000000 
+ARM GAS  /tmp/ccA1fUEE.s 			page 22
+
+
  640      00
- 641 020f 00000000 		.ascii	"\000\000\000\000\000\000\003\340\000\000\000\000\377"
- 641      000003E0 
- 641      00000000 
- 641      FF
- 642 021c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\001\360\000\000"
-ARM GAS  /tmp/ccyJ6veB.s 			page 23
-
-
- 642      00000000 
- 642      0001F000 
- 642      00
- 643 0229 0001FF00 		.ascii	"\000\001\377\000\000\000\000\000\000\000\000\000\000"
+ 641 0121 000001FF 		.ascii	"\000\000\001\377\377\300\000\377\376\001\340\000\000"
+ 641      FFC000FF 
+ 641      FE01E000 
+ 641      00
+ 642 012e 00000000 		.ascii	"\000\000\000\000\000\000\377\377\300\000\377\376\001"
+ 642      0000FFFF 
+ 642      C000FFFE 
+ 642      01
+ 643 013b E0000000 		.ascii	"\340\000\000\000\000\000\000\000\000\177\377\300\000"
  643      00000000 
- 643      00000000 
+ 643      007FFFC0 
  643      00
- 644 0236 F0000000 		.ascii	"\360\000\000\000\001\377\000\000\000\000\000\000\000"
- 644      01FF0000 
+ 644 0148 FFFE01F0 		.ascii	"\377\376\001\360\000\000\000\000\000\000\000\000\177"
  644      00000000 
- 644      00
- 645 0243 000000F8 		.ascii	"\000\000\000\370\000\000\000\001\377\000\000\000\000"
- 645      00000001 
- 645      FF000000 
+ 644      00000000 
+ 644      7F
+ 645 0155 FFC0007F 		.ascii	"\377\300\000\177\376\001\370\000\000\000\000\000\000"
+ 645      FE01F800 
+ 645      00000000 
  645      00
- 646 0250 00000000 		.ascii	"\000\000\000\000\000\000|\000\000\000\003\377\000\000"
- 646      00007C00 
- 646      000003FF 
+ 646 0162 00003FFF 		.ascii	"\000\000?\377\300\000\177\376\000\370\000\000\000\000"
+ 646      C0007FFE 
+ 646      00F80000 
  646      0000
- 647 025e 00000000 		.ascii	"\000\000\000\000\000\000\000\000>\000\000\000\003\377"
- 647      00000000 
- 647      3E000000 
- 647      03FF
- 648 026c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\037\000\000"
- 648      00000000 
- 648      00001F00 
- 648      00
- 649 0279 0007FF00 		.ascii	"\000\007\377\000\000\000\000\000\000\000\000\000\000"
+ 647 0170 00000000 		.ascii	"\000\000\000\000\037\377\300\000?\376\000\374\000\000"
+ 647      1FFFC000 
+ 647      3FFE00FC 
+ 647      0000
+ 648 017e 00000000 		.ascii	"\000\000\000\000\000\000\007\377\300\000?\374\000\376"
+ 648      000007FF 
+ 648      C0003FFC 
+ 648      00FE
+ 649 018c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\003\377\300\000\037"
  649      00000000 
- 649      00000000 
- 649      00
- 650 0286 1FC00000 		.ascii	"\037\300\000\000\017\377\200\000\000\000\000\000\000"
- 650      0FFF8000 
+ 649      03FFC000 
+ 649      1F
+ 650 0199 F800FE00 		.ascii	"\370\000\376\000\000\000\000\000\000\000\000\000\377"
  650      00000000 
- 650      00
- 651 0293 0000000F 		.ascii	"\000\000\000\017\360\000\000\037\377\200\000\000\000"
- 651      F000001F 
- 651      FF800000 
+ 650      00000000 
+ 650      FF
+ 651 01a6 C0000FF0 		.ascii	"\300\000\017\360\000\376\000\000\000\000\000\000\000"
+ 651      00FE0000 
+ 651      00000000 
  651      00
- 652 02a0 00000000 		.ascii	"\000\000\000\000\000\000\007\377\200\000\377\377\200"
- 652      000007FF 
- 652      8000FFFF 
- 652      80
- 653 02ad 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\003\377\376\037"
- 653      00000000 
- 653      0003FFFE 
- 653      1F
- 654 02ba FFFF8000 		.ascii	"\377\377\200\000\000\000\000\000\000\000\000\000\001"
- 654      00000000 
- 654      00000000 
- 654      01
- 655 02c7 FFFFFFFF 		.ascii	"\377\377\377\377\377\200\000\000\000\000\000\000\000"
- 655      FF800000 
+ 652 01b3 00007FC0 		.ascii	"\000\000\177\300\000\000\000\000\377\000\000\000\000"
+ 652      00000000 
+ 652      FF000000 
+ 652      00
+ 653 01c0 00000000 		.ascii	"\000\000\000\000\000?\300\000\000\000\000\377\000\000"
+ 653      003FC000 
+ 653      000000FF 
+ 653      0000
+ 654 01ce 00000000 		.ascii	"\000\000\000\000\000\000\000\037\300\000\000\000\000"
+ 654      0000001F 
+ 654      C0000000 
+ 654      00
+ARM GAS  /tmp/ccA1fUEE.s 			page 23
+
+
+ 655 01db FF000000 		.ascii	"\377\000\000\000\000\000\000\000\000\000\017\300\000"
  655      00000000 
+ 655      00000FC0 
  655      00
- 656 02d4 000000FF 		.ascii	"\000\000\000\377\377\377\377\377\200\000\000\000\000"
- 656      FFFFFFFF 
-ARM GAS  /tmp/ccyJ6veB.s 			page 24
-
-
- 656      80000000 
+ 656 01e8 000000FF 		.ascii	"\000\000\000\377\000\000\000\000\000\000\000\000\000"
+ 656      00000000 
+ 656      00000000 
  656      00
- 657 02e1 00000000 		.ascii	"\000\000\000\000\000\000\177\377\377\377\377\200\000"
- 657      00007FFF 
- 657      FFFFFF80 
+ 657 01f5 07E00000 		.ascii	"\007\340\000\000\000\000\377\000\000\000\000\000\000"
+ 657      0000FF00 
+ 657      00000000 
  657      00
- 658 02ee 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000?\377\377\377\377"
- 658      00000000 
- 658      003FFFFF 
- 658      FFFF
- 659 02fc 80000000 		.ascii	"\200\000\000\000\000\000\000\000\000\000\000\017\377"
+ 658 0202 00000003 		.ascii	"\000\000\000\003\340\000\000\000\000\377\000\000\000"
+ 658      E0000000 
+ 658      00FF0000 
+ 658      00
+ 659 020f 00000000 		.ascii	"\000\000\000\000\000\000\003\340\000\000\000\000\377"
+ 659      000003E0 
  659      00000000 
- 659      0000000F 
  659      FF
- 660 0309 FFFFFF80 		.ascii	"\377\377\377\200\000\000\000\000\000\000\000\000\000"
+ 660 021c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\001\360\000\000"
  660      00000000 
- 660      00000000 
+ 660      0001F000 
  660      00
- 661 0316 0007FFFF 		.ascii	"\000\007\377\377\377\377\200\000\000\000\000\000\000"
- 661      FFFF8000 
+ 661 0229 0001FF00 		.ascii	"\000\001\377\000\000\000\000\000\000\000\000\000\000"
+ 661      00000000 
  661      00000000 
  661      00
- 662 0323 00000000 		.ascii	"\000\000\000\000\001\377\377\377\377\200\000\000\000"
- 662      01FFFFFF 
- 662      FF800000 
+ 662 0236 F0000000 		.ascii	"\360\000\000\000\001\377\000\000\000\000\000\000\000"
+ 662      01FF0000 
+ 662      00000000 
  662      00
- 663 0330 00000000 		.ascii	"\000\000\000\000\000\000\000\000\177\377\377\377\000"
- 663      00000000 
- 663      7FFFFFFF 
+ 663 0243 000000F8 		.ascii	"\000\000\000\370\000\000\000\001\377\000\000\000\000"
+ 663      00000001 
+ 663      FF000000 
  663      00
- 664 033d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\037\377"
- 664      00000000 
- 664      0000001F 
- 664      FF
- 665 034a FFFF0000 		.ascii	"\377\377\000\000\000\000\000\000\000\000\000\000\000"
+ 664 0250 00000000 		.ascii	"\000\000\000\000\000\000|\000\000\000\003\377\000\000"
+ 664      00007C00 
+ 664      000003FF 
+ 664      0000
+ 665 025e 00000000 		.ascii	"\000\000\000\000\000\000\000\000>\000\000\000\003\377"
  665      00000000 
- 665      00000000 
- 665      00
- 666 0357 0003FFFF 		.ascii	"\000\003\377\377\377\000\000\000\000\000\000\000\000"
- 666      FF000000 
+ 665      3E000000 
+ 665      03FF
+ 666 026c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\037\000\000"
  666      00000000 
+ 666      00001F00 
  666      00
- 667 0364 00000000 		.ascii	"\000\000\000\000\000\000\003\377\000\000\000\000\000"
- 667      000003FF 
+ 667 0279 0007FF00 		.ascii	"\000\007\377\000\000\000\000\000\000\000\000\000\000"
+ 667      00000000 
  667      00000000 
  667      00
- 668 0371 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000?\000\000\000"
+ 668 0286 1FC00000 		.ascii	"\037\300\000\000\017\377\200\000\000\000\000\000\000"
+ 668      0FFF8000 
  668      00000000 
- 668      00003F00 
- 668      0000
- 669 037f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\002"
- 669      00000000 
- 669      00000000 
- 669      02
- 670 038c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 670      00000000 
- 670      00000000 
-ARM GAS  /tmp/ccyJ6veB.s 			page 25
+ 668      00
+ 669 0293 0000000F 		.ascii	"\000\000\000\017\360\000\000\037\377\200\000\000\000"
+ARM GAS  /tmp/ccA1fUEE.s 			page 24
 
 
- 670      00
- 671 0399 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 669      F000001F 
+ 669      FF800000 
+ 669      00
+ 670 02a0 00000000 		.ascii	"\000\000\000\000\000\000\007\377\200\000\377\377\200"
+ 670      000007FF 
+ 670      8000FFFF 
+ 670      80
+ 671 02ad 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\003\377\376\037"
  671      00000000 
- 671      00000000 
- 671      00
- 672 03a6 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 671      0003FFFE 
+ 671      1F
+ 672 02ba FFFF8000 		.ascii	"\377\377\200\000\000\000\000\000\000\000\000\000\001"
  672      00000000 
  672      00000000 
- 672      00
- 673 03b3 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 673      00000000 
+ 672      01
+ 673 02c7 FFFFFFFF 		.ascii	"\377\377\377\377\377\200\000\000\000\000\000\000\000"
+ 673      FF800000 
  673      00000000 
  673      00
- 674 03c0 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 674      00000000 
- 674      00000000 
+ 674 02d4 000000FF 		.ascii	"\000\000\000\377\377\377\377\377\200\000\000\000\000"
+ 674      FFFFFFFF 
+ 674      80000000 
  674      00
- 675 03cd 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 675      00000000 
- 675      00000000 
+ 675 02e1 00000000 		.ascii	"\000\000\000\000\000\000\177\377\377\377\377\200\000"
+ 675      00007FFF 
+ 675      FFFFFF80 
  675      00
- 676 03da 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 676 02ee 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000?\377\377\377\377"
  676      00000000 
- 676      00000000 
- 676      00
- 677 03e7 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 676      003FFFFF 
+ 676      FFFF
+ 677 02fc 80000000 		.ascii	"\200\000\000\000\000\000\000\000\000\000\000\017\377"
  677      00000000 
- 677      00000000 
- 677      00
- 678 03f4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000"
+ 677      0000000F 
+ 677      FF
+ 678 0309 FFFFFF80 		.ascii	"\377\377\377\200\000\000\000\000\000\000\000\000\000"
  678      00000000 
  678      00000000 
- 679              		.section	.rodata.mata_merem,"a"
- 680              		.align	2
- 683              	mata_merem:
- 684 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 684      00000000 
+ 678      00
+ 679 0316 0007FFFF 		.ascii	"\000\007\377\377\377\377\200\000\000\000\000\000\000"
+ 679      FFFF8000 
+ 679      00000000 
+ 679      00
+ 680 0323 00000000 		.ascii	"\000\000\000\000\001\377\377\377\377\200\000\000\000"
+ 680      01FFFFFF 
+ 680      FF800000 
+ 680      00
+ 681 0330 00000000 		.ascii	"\000\000\000\000\000\000\000\000\177\377\377\377\000"
+ 681      00000000 
+ 681      7FFFFFFF 
+ 681      00
+ 682 033d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\037\377"
+ 682      00000000 
+ 682      0000001F 
+ 682      FF
+ 683 034a FFFF0000 		.ascii	"\377\377\000\000\000\000\000\000\000\000\000\000\000"
+ 683      00000000 
+ARM GAS  /tmp/ccA1fUEE.s 			page 25
+
+
+ 683      00000000 
+ 683      00
+ 684 0357 0003FFFF 		.ascii	"\000\003\377\377\377\000\000\000\000\000\000\000\000"
+ 684      FF000000 
  684      00000000 
  684      00
- 685 000d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 685      00000000 
+ 685 0364 00000000 		.ascii	"\000\000\000\000\000\000\003\377\000\000\000\000\000"
+ 685      000003FF 
  685      00000000 
  685      00
- 686 001a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 686 0371 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000?\000\000\000"
  686      00000000 
- 686      00000000 
- 686      00
- 687 0027 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 686      00003F00 
+ 686      0000
+ 687 037f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\002"
  687      00000000 
  687      00000000 
- 687      00
- 688 0034 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 687      02
+ 688 038c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  688      00000000 
  688      00000000 
  688      00
- 689 0041 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 689 0399 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  689      00000000 
-ARM GAS  /tmp/ccyJ6veB.s 			page 26
-
-
  689      00000000 
  689      00
- 690 004e 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 690 03a6 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  690      00000000 
  690      00000000 
  690      00
- 691 005b 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 691 03b3 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  691      00000000 
  691      00000000 
  691      00
- 692 0068 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\020\000"
+ 692 03c0 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  692      00000000 
- 692      00000010 
+ 692      00000000 
  692      00
- 693 0075 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 693 03cd 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  693      00000000 
  693      00000000 
  693      00
- 694 0082 00180000 		.ascii	"\000\030\000\000\000\000\000\000\000\000\000\000\000"
+ 694 03da 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  694      00000000 
  694      00000000 
  694      00
- 695 008f 00000000 		.ascii	"\000\000\000\000\034\000\000\000\000\002\000\000\000"
- 695      1C000000 
- 695      00020000 
+ 695 03e7 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 695      00000000 
+ 695      00000000 
  695      00
- 696 009c 00000000 		.ascii	"\000\000\000\000\000\000\000\036\000\000\000\000\003"
- 696      0000001E 
+ 696 03f4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000"
  696      00000000 
- 696      03
- 697 00a9 80000000 		.ascii	"\200\000\000\000\000\000\000\000\000\000>\000\000\000"
- 697      00000000 
- 697      00003E00 
- 697      0000
- 698 00b7 0007C000 		.ascii	"\000\007\300\000\000\000\000\000\000\000\000\000<\000"
- 698      00000000 
- 698      00000000 
- 698      3C00
- 699 00c5 00000007 		.ascii	"\000\000\000\007\360\000\000\000\000\000\000\000\000"
- 699      F0000000 
- 699      00000000 
- 699      00
- 700 00d2 003C0000 		.ascii	"\000<\000\000\000\000\001\374\000\000\000\000\000\000"
- 700      000001FC 
- 700      00000000 
- 700      0000
- 701 00e0 0000003E 		.ascii	"\000\000\000>\000\000\000\000\000\376\000\000\000\000"
- 701      00000000 
- 701      00FE0000 
- 701      0000
- 702 00ee 00000000 		.ascii	"\000\000\000\000\000\177\200\000\000\000\000?\200\000"
- 702      007F8000 
- 702      0000003F 
- 702      8000
- 703 00fc 00000000 		.ascii	"\000\000\000\000\000\000\000\177\340\000\000\000\000"
- 703      0000007F 
- 703      E0000000 
-ARM GAS  /tmp/ccyJ6veB.s 			page 27
+ 696      00000000 
+ 697              		.section	.rodata.mata_merem,"a"
+ 698              		.align	2
+ 701              	mata_merem:
+ 702 0000 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ARM GAS  /tmp/ccA1fUEE.s 			page 26
 
 
+ 702      00000000 
+ 702      00000000 
+ 702      00
+ 703 000d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 703      00000000 
+ 703      00000000 
  703      00
- 704 0109 0FE00000 		.ascii	"\017\340\000\000\000\000\000\000\000\000{\360\000\000"
+ 704 001a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  704      00000000 
- 704      00007BF0 
- 704      0000
- 705 0117 000007F0 		.ascii	"\000\000\007\360\000\000\000\000\000\000\000\000x\374"
+ 704      00000000 
+ 704      00
+ 705 0027 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  705      00000000 
  705      00000000 
- 705      78FC
- 706 0125 00000000 		.ascii	"\000\000\000\000\001\360\000\000\000\000\000\000\000"
- 706      01F00000 
+ 705      00
+ 706 0034 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 706      00000000 
  706      00000000 
  706      00
- 707 0132 00787F00 		.ascii	"\000x\177\000\000\000\000\000p\000\000\000\000\000\000"
+ 707 0041 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  707      00000000 
- 707      70000000 
- 707      000000
- 708 0141 0000301F 		.ascii	"\000\0000\037\200\000\000\000\000 \000\000\000\000\000"
- 708      80000000 
- 708      00200000 
- 708      000000
- 709 0150 00000010 		.ascii	"\000\000\000\020\007\340\000\000\000\000\000\000\000"
- 709      07E00000 
+ 707      00000000 
+ 707      00
+ 708 004e 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 708      00000000 
+ 708      00000000 
+ 708      00
+ 709 005b 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 709      00000000 
  709      00000000 
  709      00
- 710 015d 00000000 		.ascii	"\000\000\000\000\000\000\000\003\370\000\000\000\000"
- 710      00000003 
- 710      F8000000 
+ 710 0068 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\020\000"
+ 710      00000000 
+ 710      00000010 
  710      00
- 711 016a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\376\000"
+ 711 0075 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  711      00000000 
- 711      000000FE 
+ 711      00000000 
  711      00
- 712 0177 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 712 0082 00180000 		.ascii	"\000\030\000\000\000\000\000\000\000\000\000\000\000"
  712      00000000 
  712      00000000 
  712      00
- 713 0184 003F0000 		.ascii	"\000?\000\000\000\000\000\000\000\000\000\000\000\000"
- 713      00000000 
- 713      00000000 
- 713      0000
- 714 0192 0000000F 		.ascii	"\000\000\000\017\300\000\000\000\000\000\000\000\000"
- 714      C0000000 
+ 713 008f 00000000 		.ascii	"\000\000\000\000\034\000\000\000\000\002\000\000\000"
+ 713      1C000000 
+ 713      00020000 
+ 713      00
+ 714 009c 00000000 		.ascii	"\000\000\000\000\000\000\000\036\000\000\000\000\003"
+ 714      0000001E 
  714      00000000 
- 714      00
- 715 019f 00000000 		.ascii	"\000\000\000\000\000\000\007\360\000\000\000\000\000"
- 715      000007F0 
+ 714      03
+ 715 00a9 80000000 		.ascii	"\200\000\000\000\000\000\000\000\000\000>\000\000\000"
  715      00000000 
- 715      00
- 716 01ac 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\001\370\000\000"
+ 715      00003E00 
+ 715      0000
+ 716 00b7 0007C000 		.ascii	"\000\007\300\000\000\000\000\000\000\000\000\000<\000"
  716      00000000 
- 716      0001F800 
- 716      00
- 717 01b9 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 717      00000000 
+ARM GAS  /tmp/ccA1fUEE.s 			page 27
+
+
+ 716      00000000 
+ 716      3C00
+ 717 00c5 00000007 		.ascii	"\000\000\000\007\360\000\000\000\000\000\000\000\000"
+ 717      F0000000 
  717      00000000 
  717      00
-ARM GAS  /tmp/ccyJ6veB.s 			page 28
-
-
- 718 01c6 7E000000 		.ascii	"~\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 718      00000000 
+ 718 00d2 003C0000 		.ascii	"\000<\000\000\000\000\001\374\000\000\000\000\000\000"
+ 718      000001FC 
  718      00000000 
  718      0000
- 719 01d4 00003F80 		.ascii	"\000\000?\200\000\000\000\000\000\000\000\000\000\000"
+ 719 00e0 0000003E 		.ascii	"\000\000\000>\000\000\000\000\000\376\000\000\000\000"
  719      00000000 
- 719      00000000 
+ 719      00FE0000 
  719      0000
- 720 01e2 00000000 		.ascii	"\000\000\000\000\017\340\000\000\000\000\000\000\000"
- 720      0FE00000 
- 720      00000000 
- 720      00
- 721 01ef 00000000 		.ascii	"\000\000\000\000\000\000\000\003\360\000\000\000\000"
- 721      00000003 
- 721      F0000000 
+ 720 00ee 00000000 		.ascii	"\000\000\000\000\000\177\200\000\000\000\000?\200\000"
+ 720      007F8000 
+ 720      0000003F 
+ 720      8000
+ 721 00fc 00000000 		.ascii	"\000\000\000\000\000\000\000\177\340\000\000\000\000"
+ 721      0000007F 
+ 721      E0000000 
  721      00
- 722 01fc 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\001\374\000"
+ 722 0109 0FE00000 		.ascii	"\017\340\000\000\000\000\000\000\000\000{\360\000\000"
  722      00000000 
- 722      000001FC 
- 722      00
- 723 0209 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 722      00007BF0 
+ 722      0000
+ 723 0117 000007F0 		.ascii	"\000\000\007\360\000\000\000\000\000\000\000\000x\374"
  723      00000000 
  723      00000000 
- 723      00
- 724 0216 007F0000 		.ascii	"\000\177\000\000\000\000\000\000\000\000\000\000\000"
- 724      00000000 
+ 723      78FC
+ 724 0125 00000000 		.ascii	"\000\000\000\000\001\360\000\000\000\000\000\000\000"
+ 724      01F00000 
  724      00000000 
  724      00
- 725 0223 00000000 		.ascii	"\000\000\000\000\037\200\000\000\000\000\000\000\000"
- 725      1F800000 
+ 725 0132 00787F00 		.ascii	"\000x\177\000\000\000\000\000p\000\000\000\000\000\000"
  725      00000000 
- 725      00
- 726 0230 00000000 		.ascii	"\000\000\000\000\000\000\000\007\340\000\000\000\000"
- 726      00000007 
- 726      E0000000 
- 726      00
- 727 023d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\003\370\000"
+ 725      70000000 
+ 725      000000
+ 726 0141 0000301F 		.ascii	"\000\0000\037\200\000\000\000\000 \000\000\000\000\000"
+ 726      80000000 
+ 726      00200000 
+ 726      000000
+ 727 0150 00000010 		.ascii	"\000\000\000\020\007\340\000\000\000\000\000\000\000"
+ 727      07E00000 
  727      00000000 
- 727      000003F8 
  727      00
- 728 024a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 728      00000000 
- 728      00000000 
+ 728 015d 00000000 		.ascii	"\000\000\000\000\000\000\000\003\370\000\000\000\000"
+ 728      00000003 
+ 728      F8000000 
  728      00
- 729 0257 00FE0000 		.ascii	"\000\376\000\000\000\000\000\000\000\000\000\000\000"
+ 729 016a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\376\000"
  729      00000000 
- 729      00000000 
+ 729      000000FE 
  729      00
- 730 0264 00000000 		.ascii	"\000\000\000\000?\000\000\000\000\000\000\000\000\000"
- 730      3F000000 
+ 730 0177 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  730      00000000 
- 730      0000
- 731 0272 00000000 		.ascii	"\000\000\000\000\000\000\037\300\000\000\000\000\000"
- 731      00001FC0 
+ 730      00000000 
+ARM GAS  /tmp/ccA1fUEE.s 			page 28
+
+
+ 730      00
+ 731 0184 003F0000 		.ascii	"\000?\000\000\000\000\000\000\000\000\000\000\000\000"
  731      00000000 
- 731      00
- 732 027f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\007\360\000\000"
-ARM GAS  /tmp/ccyJ6veB.s 			page 29
-
-
+ 731      00000000 
+ 731      0000
+ 732 0192 0000000F 		.ascii	"\000\000\000\017\300\000\000\000\000\000\000\000\000"
+ 732      C0000000 
  732      00000000 
- 732      0007F000 
  732      00
- 733 028c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\001"
+ 733 019f 00000000 		.ascii	"\000\000\000\000\000\000\007\360\000\000\000\000\000"
+ 733      000007F0 
  733      00000000 
- 733      00000000 
- 733      01
- 734 0299 F8000000 		.ascii	"\370\000\000\000\000\000\000\000\000\000\000\000\000"
+ 733      00
+ 734 01ac 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\001\370\000\000"
  734      00000000 
- 734      00000000 
+ 734      0001F800 
  734      00
- 735 02a6 0000007E 		.ascii	"\000\000\000~\000\000\000\000\000\000\000\000\000\000"
+ 735 01b9 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
  735      00000000 
  735      00000000 
- 735      0000
- 736 02b4 00000000 		.ascii	"\000\000\000\000\000?\200\000\000\000\000\000\000\000"
- 736      003F8000 
+ 735      00
+ 736 01c6 7E000000 		.ascii	"~\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 736      00000000 
  736      00000000 
  736      0000
- 737 02c2 00000000 		.ascii	"\000\000\000\000\000\000\000\017\340\000\000\000\000"
- 737      0000000F 
- 737      E0000000 
- 737      00
- 738 02cf 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\003\360\000"
+ 737 01d4 00003F80 		.ascii	"\000\000?\200\000\000\000\000\000\000\000\000\000\000"
+ 737      00000000 
+ 737      00000000 
+ 737      0000
+ 738 01e2 00000000 		.ascii	"\000\000\000\000\017\340\000\000\000\000\000\000\000"
+ 738      0FE00000 
  738      00000000 
- 738      000003F0 
  738      00
- 739 02dc 80000000 		.ascii	"\200\000\000\000\000\000\000\000\000\000\000\000\000"
- 739      00000000 
- 739      00000000 
+ 739 01ef 00000000 		.ascii	"\000\000\000\000\000\000\000\003\360\000\000\000\000"
+ 739      00000003 
+ 739      F0000000 
  739      00
- 740 02e9 01FC0180 		.ascii	"\001\374\001\200\000\000\000\000\000\000\000\000\000"
+ 740 01fc 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\001\374\000"
  740      00000000 
- 740      00000000 
+ 740      000001FC 
  740      00
- 741 02f6 00000000 		.ascii	"\000\000\000\000\177\001\300\000\000\000\000\000\000"
- 741      7F01C000 
+ 741 0209 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 741      00000000 
  741      00000000 
  741      00
- 742 0303 00000000 		.ascii	"\000\000\000\000\000\000\000\037\201\340\000\000\000"
- 742      0000001F 
- 742      81E00000 
+ 742 0216 007F0000 		.ascii	"\000\177\000\000\000\000\000\000\000\000\000\000\000"
+ 742      00000000 
+ 742      00000000 
  742      00
- 743 0310 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\007\341\340"
+ 743 0223 00000000 		.ascii	"\000\000\000\000\037\200\000\000\000\000\000\000\000"
+ 743      1F800000 
  743      00000000 
- 743      000007E1 
- 743      E0
- 744 031d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 744      00000000 
- 744      00000000 
+ 743      00
+ 744 0230 00000000 		.ascii	"\000\000\000\000\000\000\000\007\340\000\000\000\000"
+ 744      00000007 
+ 744      E0000000 
  744      00
- 745 032a 03F9E000 		.ascii	"\003\371\340\000\000\000\000\000\000\000\000\000\000"
+ARM GAS  /tmp/ccA1fUEE.s 			page 29
+
+
+ 745 023d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\003\370\000"
  745      00000000 
- 745      00000000 
+ 745      000003F8 
  745      00
- 746 0337 00000000 		.ascii	"\000\000\000\000\377\340\000\000\000\000\000\000\000"
- 746      FFE00000 
-ARM GAS  /tmp/ccyJ6veB.s 			page 30
-
-
+ 746 024a 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 746      00000000 
  746      00000000 
  746      00
- 747 0344 00000000 		.ascii	"\000\000\000\000\000\000\000?\300\000\000\000\000\000"
- 747      0000003F 
- 747      C0000000 
- 747      0000
- 748 0352 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\037\300\000\000"
+ 747 0257 00FE0000 		.ascii	"\000\376\000\000\000\000\000\000\000\000\000\000\000"
+ 747      00000000 
+ 747      00000000 
+ 747      00
+ 748 0264 00000000 		.ascii	"\000\000\000\000?\000\000\000\000\000\000\000\000\000"
+ 748      3F000000 
  748      00000000 
- 748      001FC000 
- 748      00
- 749 035f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\007"
+ 748      0000
+ 749 0272 00000000 		.ascii	"\000\000\000\000\000\000\037\300\000\000\000\000\000"
+ 749      00001FC0 
  749      00000000 
- 749      00000000 
- 749      07
- 750 036c C0000000 		.ascii	"\300\000\000\000\000\000\000\000\000\000\000\000\000"
+ 749      00
+ 750 027f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\007\360\000\000"
  750      00000000 
- 750      00000000 
+ 750      0007F000 
  750      00
- 751 0379 000007C0 		.ascii	"\000\000\007\300\000\000\000\000\000\000\000\000\000"
+ 751 028c 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\001"
  751      00000000 
  751      00000000 
- 751      00
- 752 0386 00000000 		.ascii	"\000\000\000\000\000\007\300\000\000\000\000\000\000"
- 752      0007C000 
+ 751      01
+ 752 0299 F8000000 		.ascii	"\370\000\000\000\000\000\000\000\000\000\000\000\000"
+ 752      00000000 
  752      00000000 
  752      00
- 753 0393 00000000 		.ascii	"\000\000\000\000\000\000\000\000\003\200\000\000\000"
+ 753 02a6 0000007E 		.ascii	"\000\000\000~\000\000\000\000\000\000\000\000\000\000"
  753      00000000 
- 753      03800000 
- 753      00
- 754 03a0 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\001\200"
+ 753      00000000 
+ 753      0000
+ 754 02b4 00000000 		.ascii	"\000\000\000\000\000?\200\000\000\000\000\000\000\000"
+ 754      003F8000 
  754      00000000 
- 754      00000001 
- 754      80
- 755 03ad 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 755      00000000 
- 755      00000000 
+ 754      0000
+ 755 02c2 00000000 		.ascii	"\000\000\000\000\000\000\000\017\340\000\000\000\000"
+ 755      0000000F 
+ 755      E0000000 
  755      00
- 756 03ba 00018000 		.ascii	"\000\001\200\000\000\000\000\000\000\000\000\000\000"
+ 756 02cf 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\003\360\000"
  756      00000000 
- 756      00000000 
+ 756      000003F0 
  756      00
- 757 03c7 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 757 02dc 80000000 		.ascii	"\200\000\000\000\000\000\000\000\000\000\000\000\000"
  757      00000000 
  757      00000000 
  757      00
- 758 03d4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 758 02e9 01FC0180 		.ascii	"\001\374\001\200\000\000\000\000\000\000\000\000\000"
  758      00000000 
  758      00000000 
  758      00
- 759 03e1 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 759      00000000 
+ 759 02f6 00000000 		.ascii	"\000\000\000\000\177\001\300\000\000\000\000\000\000"
+ARM GAS  /tmp/ccA1fUEE.s 			page 30
+
+
+ 759      7F01C000 
  759      00000000 
  759      00
- 760 03ee 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
- 760      00000000 
- 760      00000000 
-ARM GAS  /tmp/ccyJ6veB.s 			page 31
-
-
+ 760 0303 00000000 		.ascii	"\000\000\000\000\000\000\000\037\201\340\000\000\000"
+ 760      0000001F 
+ 760      81E00000 
  760      00
- 761 03fb 00000000 		.ascii	"\000\000\000\000\000"
- 761      00
- 762              		.text
- 763              	.Letext0:
- 764              		.file 3 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
- 765              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 766              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 767              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
- 768              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
- 769              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 770              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h"
- 771              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
- 772              		.file 11 "Core/Inc/ssd1306.h"
- 773              		.file 12 "Core/Inc/bitmap.h"
- 774              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
- 775              		.file 14 "/usr/include/newlib/stdio.h"
- 776              		.file 15 "<built-in>"
-ARM GAS  /tmp/ccyJ6veB.s 			page 32
+ 761 0310 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\007\341\340"
+ 761      00000000 
+ 761      000007E1 
+ 761      E0
+ 762 031d 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 762      00000000 
+ 762      00000000 
+ 762      00
+ 763 032a 03F9E000 		.ascii	"\003\371\340\000\000\000\000\000\000\000\000\000\000"
+ 763      00000000 
+ 763      00000000 
+ 763      00
+ 764 0337 00000000 		.ascii	"\000\000\000\000\377\340\000\000\000\000\000\000\000"
+ 764      FFE00000 
+ 764      00000000 
+ 764      00
+ 765 0344 00000000 		.ascii	"\000\000\000\000\000\000\000?\300\000\000\000\000\000"
+ 765      0000003F 
+ 765      C0000000 
+ 765      0000
+ 766 0352 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\037\300\000\000"
+ 766      00000000 
+ 766      001FC000 
+ 766      00
+ 767 035f 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\007"
+ 767      00000000 
+ 767      00000000 
+ 767      07
+ 768 036c C0000000 		.ascii	"\300\000\000\000\000\000\000\000\000\000\000\000\000"
+ 768      00000000 
+ 768      00000000 
+ 768      00
+ 769 0379 000007C0 		.ascii	"\000\000\007\300\000\000\000\000\000\000\000\000\000"
+ 769      00000000 
+ 769      00000000 
+ 769      00
+ 770 0386 00000000 		.ascii	"\000\000\000\000\000\007\300\000\000\000\000\000\000"
+ 770      0007C000 
+ 770      00000000 
+ 770      00
+ 771 0393 00000000 		.ascii	"\000\000\000\000\000\000\000\000\003\200\000\000\000"
+ 771      00000000 
+ 771      03800000 
+ 771      00
+ 772 03a0 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\001\200"
+ 772      00000000 
+ 772      00000001 
+ 772      80
+ 773 03ad 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 773      00000000 
+ARM GAS  /tmp/ccA1fUEE.s 			page 31
+
+
+ 773      00000000 
+ 773      00
+ 774 03ba 00018000 		.ascii	"\000\001\200\000\000\000\000\000\000\000\000\000\000"
+ 774      00000000 
+ 774      00000000 
+ 774      00
+ 775 03c7 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 775      00000000 
+ 775      00000000 
+ 775      00
+ 776 03d4 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 776      00000000 
+ 776      00000000 
+ 776      00
+ 777 03e1 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 777      00000000 
+ 777      00000000 
+ 777      00
+ 778 03ee 00000000 		.ascii	"\000\000\000\000\000\000\000\000\000\000\000\000\000"
+ 778      00000000 
+ 778      00000000 
+ 778      00
+ 779 03fb 00000000 		.ascii	"\000\000\000\000\000"
+ 779      00
+ 780              		.text
+ 781              	.Letext0:
+ 782              		.file 3 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
+ 783              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 784              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 785              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h"
+ 786              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h"
+ 787              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 788              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h"
+ 789              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 790              		.file 11 "Core/Inc/ssd1306.h"
+ 791              		.file 12 "Core/Inc/bitmap.h"
+ 792              		.file 13 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 793              		.file 14 "/usr/include/newlib/stdio.h"
+ 794              		.file 15 "/usr/include/newlib/string.h"
+ 795              		.file 16 "<built-in>"
+ARM GAS  /tmp/ccA1fUEE.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-     /tmp/ccyJ6veB.s:16     .text.MX_GPIO_Init:0000000000000000 $t
-     /tmp/ccyJ6veB.s:23     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-     /tmp/ccyJ6veB.s:89     .text.MX_GPIO_Init:0000000000000040 $d
-     /tmp/ccyJ6veB.s:94     .text.Error_Handler:0000000000000000 $t
-     /tmp/ccyJ6veB.s:101    .text.Error_Handler:0000000000000000 Error_Handler
-     /tmp/ccyJ6veB.s:133    .text.MX_I2C1_Init:0000000000000000 $t
-     /tmp/ccyJ6veB.s:139    .text.MX_I2C1_Init:0000000000000000 MX_I2C1_Init
-     /tmp/ccyJ6veB.s:197    .text.MX_I2C1_Init:000000000000002c $d
-     /tmp/ccyJ6veB.s:204    .text.MX_USART1_UART_Init:0000000000000000 $t
-     /tmp/ccyJ6veB.s:210    .text.MX_USART1_UART_Init:0000000000000000 MX_USART1_UART_Init
-     /tmp/ccyJ6veB.s:265    .text.MX_USART1_UART_Init:000000000000002c $d
-     /tmp/ccyJ6veB.s:271    .text.SystemClock_Config:0000000000000000 $t
-     /tmp/ccyJ6veB.s:278    .text.SystemClock_Config:0000000000000000 SystemClock_Config
-     /tmp/ccyJ6veB.s:383    .rodata.main.str1.4:0000000000000000 $d
-     /tmp/ccyJ6veB.s:387    .text.main:0000000000000000 $t
-     /tmp/ccyJ6veB.s:394    .text.main:0000000000000000 main
-     /tmp/ccyJ6veB.s:514    .text.main:000000000000008c $d
-     /tmp/ccyJ6veB.s:580    .data.EndMSG:0000000000000000 EndMSG
-     /tmp/ccyJ6veB.s:594    .data.StartMSG:0000000000000000 StartMSG
-     /tmp/ccyJ6veB.s:587    .data.Space:0000000000000000 Space
-     /tmp/ccyJ6veB.s:540    .bss.Buffer:0000000000000000 Buffer
-     /tmp/ccyJ6veB.s:552    .bss.data_memori:0000000000000000 data_memori
-     /tmp/ccyJ6veB.s:546    .bss.Data_Read:0000000000000000 Data_Read
-     /tmp/ccyJ6veB.s:572    .data.Data_Write:0000000000000000 Data_Write
-     /tmp/ccyJ6veB.s:566    .bss.huart1:0000000000000000 huart1
-     /tmp/ccyJ6veB.s:559    .bss.hi2c1:0000000000000000 hi2c1
-     /tmp/ccyJ6veB.s:683    .rodata.mata_merem:0000000000000000 mata_merem
-     /tmp/ccyJ6veB.s:600    .rodata.mata_melek:0000000000000000 mata_melek
-     /tmp/ccyJ6veB.s:536    .bss.Buffer:0000000000000000 $d
-     /tmp/ccyJ6veB.s:543    .bss.Data_Read:0000000000000000 $d
-     /tmp/ccyJ6veB.s:549    .bss.data_memori:0000000000000000 $d
-     /tmp/ccyJ6veB.s:555    .bss.hi2c1:0000000000000000 $d
-     /tmp/ccyJ6veB.s:562    .bss.huart1:0000000000000000 $d
-     /tmp/ccyJ6veB.s:569    .data.Data_Write:0000000000000000 $d
-     /tmp/ccyJ6veB.s:576    .data.EndMSG:0000000000000000 $d
-     /tmp/ccyJ6veB.s:583    .data.Space:0000000000000000 $d
-     /tmp/ccyJ6veB.s:590    .data.StartMSG:0000000000000000 $d
-     /tmp/ccyJ6veB.s:597    .rodata.mata_melek:0000000000000000 $d
-     /tmp/ccyJ6veB.s:680    .rodata.mata_merem:0000000000000000 $d
+     /tmp/ccA1fUEE.s:16     .text.MX_GPIO_Init:0000000000000000 $t
+     /tmp/ccA1fUEE.s:23     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+     /tmp/ccA1fUEE.s:89     .text.MX_GPIO_Init:0000000000000040 $d
+     /tmp/ccA1fUEE.s:94     .text.Error_Handler:0000000000000000 $t
+     /tmp/ccA1fUEE.s:101    .text.Error_Handler:0000000000000000 Error_Handler
+     /tmp/ccA1fUEE.s:133    .text.MX_I2C1_Init:0000000000000000 $t
+     /tmp/ccA1fUEE.s:139    .text.MX_I2C1_Init:0000000000000000 MX_I2C1_Init
+     /tmp/ccA1fUEE.s:197    .text.MX_I2C1_Init:000000000000002c $d
+     /tmp/ccA1fUEE.s:204    .text.MX_USART1_UART_Init:0000000000000000 $t
+     /tmp/ccA1fUEE.s:210    .text.MX_USART1_UART_Init:0000000000000000 MX_USART1_UART_Init
+     /tmp/ccA1fUEE.s:265    .text.MX_USART1_UART_Init:000000000000002c $d
+     /tmp/ccA1fUEE.s:271    .text.SystemClock_Config:0000000000000000 $t
+     /tmp/ccA1fUEE.s:278    .text.SystemClock_Config:0000000000000000 SystemClock_Config
+     /tmp/ccA1fUEE.s:383    .rodata.main.str1.4:0000000000000000 $d
+     /tmp/ccA1fUEE.s:390    .text.main:0000000000000000 $t
+     /tmp/ccA1fUEE.s:397    .text.main:0000000000000000 main
+     /tmp/ccA1fUEE.s:533    .text.main:00000000000000b8 $d
+     /tmp/ccA1fUEE.s:600    .data.EndMSG:0000000000000000 EndMSG
+     /tmp/ccA1fUEE.s:612    .data.StartMSG:0000000000000000 StartMSG
+     /tmp/ccA1fUEE.s:606    .data.Space:0000000000000000 Space
+     /tmp/ccA1fUEE.s:558    .bss.Buffer:0000000000000000 Buffer
+     /tmp/ccA1fUEE.s:572    .bss.data_memori:0000000000000000 data_memori
+     /tmp/ccA1fUEE.s:565    .bss.Data_Read:0000000000000000 Data_Read
+     /tmp/ccA1fUEE.s:593    .data.Data_Write:0000000000000000 Data_Write
+     /tmp/ccA1fUEE.s:586    .bss.huart1:0000000000000000 huart1
+     /tmp/ccA1fUEE.s:579    .bss.hi2c1:0000000000000000 hi2c1
+     /tmp/ccA1fUEE.s:701    .rodata.mata_merem:0000000000000000 mata_merem
+     /tmp/ccA1fUEE.s:618    .rodata.mata_melek:0000000000000000 mata_melek
+     /tmp/ccA1fUEE.s:555    .bss.Buffer:0000000000000000 $d
+     /tmp/ccA1fUEE.s:561    .bss.Data_Read:0000000000000000 $d
+     /tmp/ccA1fUEE.s:568    .bss.data_memori:0000000000000000 $d
+     /tmp/ccA1fUEE.s:575    .bss.hi2c1:0000000000000000 $d
+     /tmp/ccA1fUEE.s:582    .bss.huart1:0000000000000000 $d
+     /tmp/ccA1fUEE.s:589    .data.Data_Write:0000000000000000 $d
+     /tmp/ccA1fUEE.s:597    .data.EndMSG:0000000000000000 $d
+     /tmp/ccA1fUEE.s:603    .data.Space:0000000000000000 $d
+     /tmp/ccA1fUEE.s:609    .data.StartMSG:0000000000000000 $d
+     /tmp/ccA1fUEE.s:615    .rodata.mata_melek:0000000000000000 $d
+     /tmp/ccA1fUEE.s:698    .rodata.mata_merem:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_I2C_Init
@@ -1872,6 +1894,8 @@ HAL_RCC_OscConfig
 HAL_RCC_ClockConfig
 HAL_Init
 HAL_Delay
-HAL_UART_Transmit
+HAL_I2C_Mem_Write
+HAL_I2C_Mem_Read
 sprintf
-HAL_I2C_IsDeviceReady
+strlen
+HAL_UART_Transmit

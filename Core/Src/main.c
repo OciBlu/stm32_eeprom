@@ -113,13 +113,13 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
   HAL_Delay(1000);
- 
-    /*-[ I2C Bus Scanning ]-*/
+  /*
+    //-[ I2C Bus Scanning ]-
     HAL_UART_Transmit(&huart1, StartMSG, sizeof(StartMSG), 10000);
     for(i=1; i<128; i++)
     {
         ret = HAL_I2C_IsDeviceReady(&hi2c1, (uint16_t)(i<<1), 3, 5);
-        if (ret != HAL_OK) /* No ACK Received At That Address */
+        if (ret != HAL_OK) ///No ACK Received At That Address
         {
             HAL_UART_Transmit(&huart1, Space, sizeof(Space), 10000);
         }
@@ -130,14 +130,14 @@ int main(void)
         }
     }
     HAL_UART_Transmit(&huart1, EndMSG, sizeof(EndMSG), 10000);
-    /*--[ Scanning Done ]--*/
+    //--[ Scanning Done ]--
+  */
 
-
-  /*
+  
   //HAL_I2C_Mem_Write(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
   HAL_I2C_Mem_Write(&hi2c1, (0xA0 << 1), 0, 2, Data_Write, sizeof(Data_Write), HAL_MAX_DELAY);
   HAL_Delay(1000);
-  HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, (0xA0 << 1) | 0x00 , 0, 2, Data_Read, sizeof(Data_Read), HAL_MAX_DELAY);
+  HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, (0xA0 << 1), 0, 2, Data_Read, sizeof(Data_Read), HAL_MAX_DELAY);
 
   if (status == HAL_OK){
     sprintf(data_memori, "data: %hhn ", Data_Read);
@@ -149,7 +149,7 @@ int main(void)
     HAL_UART_Transmit(&huart1,(uint8_t*)data_memori, strlen(data_memori), HAL_MAX_DELAY);
     HAL_Delay(5);
   }
-  */
+  
  
 
   /* USER CODE END 2 */
