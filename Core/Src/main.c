@@ -54,9 +54,10 @@ UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 #define EEPROM_ADDR (0xA0 << 1)
-uint8_t Data_Write[10] = "T";
-uint8_t Data_Read[10];
-char data_memori[25];
+uint8_t Data_Save[] = "4096";
+uint8_t Data_Read[64];
+uint16_t Nilai_Data;
+char data_memori[64];
 
 uint8_t Buffer[25] = {0};
 uint8_t Space[] = " - ";
@@ -87,7 +88,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-  uint8_t i = 0, ret;
+  //uint8_t i = 0, ret;
 
   /* USER CODE END 1 */
 
@@ -135,12 +136,15 @@ int main(void)
 
   
   //HAL_I2C_Mem_Write(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
-  HAL_I2C_Mem_Write(&hi2c1, (0xA0 << 1), 0, 2, Data_Write, sizeof(Data_Write), HAL_MAX_DELAY);
-  HAL_Delay(1000);
-  HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, (0xA0 << 1), 0, 2, Data_Read, sizeof(Data_Read), HAL_MAX_DELAY);
+  HAL_I2C_Mem_Write(&hi2c1, 0x50<<1, 0x0000, 2, (uint8_t*)Data_Save, sizeof(Data_Save), HAL_MAX_DELAY);
+  HAL_Delay(10);
+  //HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+  HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, 0x50<<1, 0x0000, 2, (uint8_t*)Data_Read, sizeof(Data_Read), HAL_MAX_DELAY);
+  HAL_Delay(10);
+  Nilai_Data = atoi(Data_Read);
 
   if (status == HAL_OK){
-    sprintf(data_memori, "data: %hhn ", Data_Read);
+    sprintf(data_memori, "Berhasil baca EEPROM: %hu ", Nilai_Data);
     HAL_UART_Transmit(&huart1,(uint8_t*)data_memori, strlen(data_memori), HAL_MAX_DELAY);
     HAL_Delay(5);
   }
