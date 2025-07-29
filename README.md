@@ -1,8 +1,11 @@
 # stm32_eeprom
 STM32 akses EEPROM AT24C64
 
-## Konfigurasi pin i2c
-Gunakan pin I2C PB8 dan PB9 untuk memori
+## MCU Configuration
+I2C
+- Parameter Settings
+- I2C speed : Fast Mode
+- Gunakan pin I2C PB8 dan PB9 untuk memori
 
 ## Konversi Char to Integer data
 subtracting the ASCII value of '0'.
